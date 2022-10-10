@@ -19,7 +19,7 @@ jobs:
         run: mvn -B install --file pom.xml
 
       - name: Code Analysis
-        run:
+        run: |
           mvn sonar:sonar \
           -Dsonar.projectKey=eindopdracht-1-tygo-joost \
           -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
