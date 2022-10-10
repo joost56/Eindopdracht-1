@@ -17,4 +17,3 @@ jobs:
         run: mvn --batch-mode --update-snapshots package
       - name: Build the Docker image
         run: docker build . --file Dockerfile
-        working-directory: Eindopdracht-1
