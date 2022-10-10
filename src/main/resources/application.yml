@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: eindopdracht-1
+  profiles:
+    active: dev
