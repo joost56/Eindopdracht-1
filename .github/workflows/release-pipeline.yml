@@ -27,5 +27,5 @@ jobs:
 #          working-directory: assignment-1-3-4
 
       - name: Build the Docker image
-      run: docker build . --file Dockerfile
-      working-directory: Eindopdracht-1
+        run: docker build . --file Dockerfile
+        working-directory: Eindopdracht-1
