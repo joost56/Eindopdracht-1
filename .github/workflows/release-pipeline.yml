@@ -15,11 +15,10 @@ jobs:
           distribution: 'adopt'
       - name: Code Analysis
         run:
-          mvn -B sonar:sonar
-          -Dsonar.projectName=Eindopdracht-1 \
-          -Dsonar.projectKey=Eindopdrachtt-1 \
-          -Dsonar.host.url=http://sonar.cloud-native-minor.it \
-          -Dsonar.login=61d6e177581aa8ad761eaebd936fc749b245b1dd
+          mvn sonar:sonar \
+          -Dsonar.projectKey=eindopdracht-1-tygo-joost \
+          -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
+          -Dsonar.login=45d50dd41d616b6d7bcb94387588d9ea2a89c7da
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
       - name: Build the Docker image
