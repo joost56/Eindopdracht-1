@@ -14,7 +14,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Code Analysis
-          run: |
+          run:
             mvn -B sonar:sonar
             -Dsonar.projectKey=Eindopdracht-1 \
             -Dsonar.host.url=http://sonar.cloud-native-minor.it \
