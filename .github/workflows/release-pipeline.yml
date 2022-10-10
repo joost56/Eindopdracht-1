@@ -14,13 +14,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Code Analysis
-          run:
-            mvn -B sonar:sonar
-            -Dsonar.projectKey=Eindopdracht-1 \
-            -Dsonar.host.url=http://sonar.cloud-native-minor.it \
-            -Dsonar.login=da6a272d3248d7099bf584b242bc148127a7f3f7 \
-            -Dsonar.qualitygate.wait=true \
-            -Dsonar.qualitygate.timeout=60
+        run:
+          mvn -B sonar:sonar
+          -Dsonar.projectKey=Eindopdracht-1 \
+          -Dsonar.host.url=http://sonar.cloud-native-minor.it \
+          -Dsonar.login=da6a272d3248d7099bf584b242bc148127a7f3f7 \
+          -Dsonar.qualitygate.wait=true \
+          -Dsonar.qualitygate.timeout=60
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
       - name: Build the Docker image
