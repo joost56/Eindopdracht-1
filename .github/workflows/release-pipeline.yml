@@ -16,7 +16,8 @@ jobs:
       - name: Code Analysis
         run:
           mvn -B sonar:sonar
-          -Dsonar.projectKey=Eindopdracht-1 \
+          -Dsonar.projectName=Eindopdracht-1 \
+          -Dsonar.projectKey=Eindopdrachtt-1 \
           -Dsonar.host.url=http://sonar.cloud-native-minor.it \
           -Dsonar.login=61d6e177581aa8ad761eaebd936fc749b245b1dd
       - name: Build with Maven
