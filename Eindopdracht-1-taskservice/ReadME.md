@@ -1,0 +1,1 @@
+https://eindopracht-bucket.s3.amazonaws.com/index.html = link naar bucket
