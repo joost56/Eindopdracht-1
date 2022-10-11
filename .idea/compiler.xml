@@ -6,6 +6,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="account-service" target="17" />
+      <module name="eindopdracht-1" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
