@@ -29,5 +29,5 @@ jobs:
           -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
           -Dsonar.login=45d50dd41d616b6d7bcb94387588d9ea2a89c7da
 
-      - name: Build the Docker image
+      - name: Build the Docker image.
         run: docker build . --file /Eindopdracht-1-taskservice Dockerfile
