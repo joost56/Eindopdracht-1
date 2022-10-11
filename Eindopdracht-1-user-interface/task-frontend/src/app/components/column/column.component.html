@@ -1,0 +1,6 @@
+<app-task></app-task>
+<table>
+  <tr *ngFor="let task of (tasks$ | async)">
+    <td>{{task.content}}</td>
+  </tr>
+</table>
