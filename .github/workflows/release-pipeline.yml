@@ -20,9 +20,11 @@ jobs:
           cache: maven
 
       - name: Build with Maven
+        working-directory: Eindopdracht-1-taskservice
         run: mvn -B install --file pom.xml
 
       - name: Code Analysis
+        working-directory: Eindopdracht-1-taskservice
         run: |
           mvn sonar:sonar \
           -Dsonar.projectKey=eindopdracht-1-tygo-joost \
