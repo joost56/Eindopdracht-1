@@ -19,8 +19,7 @@ jobs:
       - name: Deploy container to EC2
         working-directory: Eindopdracht-1-taskservice
         env:
-#           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-          PRIVATE_KEY: QKVANF+gjKDo3Q0eLXRCfc4q0hZq0+zyf6awwBw/
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
           HOSTNAME : ec2-44-202-49-122.compute-1.amazonaws.com
           USER_NAME : ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: 890231107819.dkr.ecr.us-east-1.amazonaws.com
