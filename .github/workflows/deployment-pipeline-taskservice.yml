@@ -20,7 +20,7 @@ jobs:
         working-directory: Eindopdracht-1-taskservice
         env:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-          HOSTNAME : ec2-44-202-49-122.compute-1.amazonaws.com
+          HOSTNAME : ec2-3-84-145-76.compute-1.amazonaws.com 
           USER_NAME : ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: 890231107819.dkr.ecr.us-east-1.amazonaws.com
           ECR_REPOSITORY: eindopdracht-ecr
