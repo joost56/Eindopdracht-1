@@ -31,6 +31,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
             echo \"Image to deploy: ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}\"
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}/${ECR_REPOSITORY}
-            docker rm -f eindopdracht-1-taskservice
-            docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod --name eindopdracht-1-taskservice ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} 
+            docker rm -f Eindopdracht-1-taskservice
+            docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod --name Eindopdracht-1-taskservice ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} 
           "
