@@ -2,11 +2,13 @@ package nl.hu.eindopdracht1.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import nl.hu.eindopdracht1.data.entity.Column;
+import nl.hu.eindopdracht1.data.entity.Task;
+import nl.hu.eindopdracht1.domain.exception.ColumnNotFoundException;
+import nl.hu.eindopdracht1.domain.service.ColumnService;
 import nl.hu.eindopdracht1.domain.service.TaskService;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tasks")
@@ -15,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class TaskController {
     private final TaskService taskService;
+    private final ColumnService columnService;
 
     @PostMapping("/create")
-    public String createTask(){
-        return "ja";
+    public Task createTask(@PathVariable String columnId, @RequestBody String taskDescription) throws ColumnNotFoundException {
+        Column column = columnService.findColumnById(columnId);
+        return taskService.save(new Task(taskDescription, column));
     }
 }
