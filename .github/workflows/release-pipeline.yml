@@ -33,4 +33,9 @@ jobs:
 
       - name: Build the Docker image
         working-directory: Eindopdracht-1-taskservice
-        run: docker build .
+        run: docker build . --file Dockerfile --tag eindopdracht-ecr:v$GITHUB_RUN_NUMBER
+
+      - name: Tag the build version
+        run: |
+          git tag "Build-v$GITHUB_RUN_NUMBER"
+          git push origin "Build-v$GITHUB_RUN_NUMBER"
