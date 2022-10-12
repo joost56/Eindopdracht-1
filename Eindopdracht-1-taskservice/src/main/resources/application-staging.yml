@@ -1,0 +1,19 @@
+spring:
+
+  datasource:
+    url: jdbc:postgresql://eindopdracht-first-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/eindopdracht-first-database
+    username: postgres
+    password: postgres
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        connection:
+          charSet: UTF-8
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+
