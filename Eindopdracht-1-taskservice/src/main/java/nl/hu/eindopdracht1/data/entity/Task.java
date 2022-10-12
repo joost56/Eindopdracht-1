@@ -23,4 +23,8 @@ public class Task {
         this.description = description;
         this.column = column;
     }
+
+    public void editTask(String newDescription) {
+        description = newDescription;
+    }
 }

@@ -26,11 +26,11 @@ public class Column {
         this.id = id;
     }
 
-    public boolean addTaskToColumn(Task task) {
+    public boolean addTask(Task task) {
         return tasks.add(task);
     }
 
-    public boolean removeTaskFromColumn(Task task) {
+    public boolean removeTask(Task task) {
         return tasks.remove(task);
     }
 }
