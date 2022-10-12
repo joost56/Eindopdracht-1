@@ -15,8 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      
       - name: Deploy container to EC2
+        working-directory: Eindopdracht-1-taskservice
         env:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
           HOSTNAME : ec2-44-202-49-122.compute-1.amazonaws.com
