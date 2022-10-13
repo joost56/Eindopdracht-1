@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.*;
 public class ColumnController {
     private final ColumnService columnService;
 
-    @PostMapping("/create/{boardId}")
-    public Column createColumn(@PathVariable String boardId, @RequestBody String columnId){
+    @PostMapping("/create")
+    public Column createColumn(@RequestBody String columnId){
         return columnService.save(new Column(columnId));
     }
 
