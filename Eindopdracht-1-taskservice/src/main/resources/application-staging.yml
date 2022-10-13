@@ -4,6 +4,11 @@ spring:
     url: jdbc:postgresql://eindopdracht-first-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/eindopdrachtfirstdatabase
     username: postgres
     password: postgres
+#  spring:
+#    datasource:
+#    url: jdbc:postgresql://localhost:5433/testdb
+#    username: postgres
+#    password: DingleBugger
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

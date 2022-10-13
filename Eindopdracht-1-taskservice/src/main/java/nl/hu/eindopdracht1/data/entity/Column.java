@@ -11,6 +11,7 @@ import java.util.Set;
 
 
 @Entity
+@Table(name="column_table")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

@@ -1,6 +1,14 @@
-<app-task></app-task>
 <table>
-  <tr *ngFor="let task of (tasks$ | async)">
-    <td>{{task.content}}</td>
+  <tr><th>Column</th></tr>
+  <tr>
+    <div [id]="id.toString()"
+         cdkDropList
+         (cdkDropListDropped)="drop($event)"
+         [cdkDropListData]="(tasksContent$ | async) ?? []">
+      <div
+        *ngFor="let task of (tasks$ | async)">
+        <div cdkDrag>{{task.content}}</div>
+      </div>
+    </div>
   </tr>
 </table>
