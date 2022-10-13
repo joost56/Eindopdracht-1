@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class TaskCreateDto {
-    private String description;
+public class CreateTaskDto {
+    private String columnId;
+    private String taskDescription;
 }

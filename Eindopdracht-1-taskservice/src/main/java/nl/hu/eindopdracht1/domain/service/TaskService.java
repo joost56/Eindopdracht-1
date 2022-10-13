@@ -21,11 +21,11 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task findTaskById(String taskId) throws TaskNotFoundException {
+    public Task findTaskById(Long taskId) throws TaskNotFoundException {
         return this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
     }
 
-    public Task editTask(String taskId, String newDescription) throws TaskNotFoundException {
+    public Task editTask(Long taskId, String newDescription) throws TaskNotFoundException {
         Task task = this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
         task.editTask(newDescription);
         return task;
