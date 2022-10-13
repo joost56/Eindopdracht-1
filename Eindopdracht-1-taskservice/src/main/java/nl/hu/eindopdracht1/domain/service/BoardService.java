@@ -16,9 +16,6 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class BoardService {
-    private final ColumnRepository columnRepository;
-    private final TaskRepository taskRepository;
-    private final TaskService taskService;
     private final BoardRepository boardRepository;
 
     public Board save(Board board) {
