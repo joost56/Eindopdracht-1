@@ -27,10 +27,26 @@ public class ColumnService {
         return this.columnRepository.findById(columnId).orElseThrow(() -> new ColumnNotFoundException(columnId));
     }
 
+    public Column addTask(String columnId, String taskId) throws TaskNotFoundException, ColumnNotFoundException {
+        Column column = findColumnById(columnId);
+        Task task = taskService.findTaskById(taskId);
+        column.addTask(task);
+        taskRepository.save(task);
+        return columnRepository.save(column);
+    }
+
+    public Column removeTask(String columnId, String taskId) throws ColumnNotFoundException, TaskNotFoundException {
+        Column column = findColumnById(columnId);
+        Task task = taskService.findTaskById(taskId);
+        column.removeTask(task);
+        taskRepository.delete(task);
+        return columnRepository.save(column);
+    }
+
     public Column switchTask(String oldColumnId, String newColumnId, String taskId) throws ColumnNotFoundException, TaskNotFoundException {
         Task task = taskService.findTaskById(taskId);
-        taskService.removeTask(oldColumnId, taskId);
-        taskService.addTask(newColumnId, taskId);
+        removeTask(oldColumnId, taskId);
+        addTask(newColumnId, taskId);
         Column columnOld = findColumnById(oldColumnId);
         Column columnNew = findColumnById(newColumnId);
         columnRepository.save(columnOld);
