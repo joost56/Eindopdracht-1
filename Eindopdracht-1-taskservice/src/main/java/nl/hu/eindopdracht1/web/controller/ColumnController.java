@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class ColumnController {
     private final ColumnService columnService;
 
-    @PostMapping("/create")
-    public Column createColumn(){
-        return columnService.save(new Column("Dit is een column"));
+    @PostMapping("/create/{boardId}")
+    public Column createColumn(@PathVariable String boardId, @RequestBody String columnId){
+        return columnService.save(new Column(columnId));
     }
 
     @PutMapping("/switch/{oldColumnId}/{newColumnId}/{taskId}")

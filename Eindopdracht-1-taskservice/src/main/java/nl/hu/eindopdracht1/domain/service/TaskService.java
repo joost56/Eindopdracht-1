@@ -17,6 +17,8 @@ import javax.transaction.Transactional;
 public class TaskService {
     private final TaskRepository taskRepository;
     private final ColumnRepository columnRepository;
+    private final TaskService taskService;
+    private final ColumnService columnService;
 
     public Task save(Task task){
         return taskRepository.save(task);
@@ -30,5 +32,21 @@ public class TaskService {
         Task task = this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
         task.editTask(newDescription);
         return task;
+    }
+
+    public Column addTask(String columnId, String taskId) throws TaskNotFoundException, ColumnNotFoundException {
+        Column column = columnService.findColumnById(columnId);
+        Task task = taskService.findTaskById(taskId);
+        column.addTask(task);
+        taskRepository.save(task);
+        return columnRepository.save(column);
+    }
+
+    public Column removeTask(String columnId, String taskId) throws ColumnNotFoundException, TaskNotFoundException {
+        Column column = columnService.findColumnById(columnId);
+        Task task = taskService.findTaskById(taskId);
+        column.removeTask(task);
+        taskRepository.delete(task);
+        return columnRepository.save(column);
     }
 }
