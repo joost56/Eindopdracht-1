@@ -1,5 +1,6 @@
 package nl.hu.eindopdracht1.data.entity;
 
+import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,11 @@ import java.util.Set;
 @Setter
 public class Column {
     @Id
+    @Name("column_id")
     private String id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "column", cascade = CascadeType.ALL)
+    @javax.persistence.Column
     private Set<Task> tasks = new HashSet<>();
 
     public Column(String id) {

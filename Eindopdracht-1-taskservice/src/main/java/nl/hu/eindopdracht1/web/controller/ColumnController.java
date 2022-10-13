@@ -7,6 +7,8 @@ import nl.hu.eindopdracht1.data.entity.Task;
 import nl.hu.eindopdracht1.domain.exception.ColumnNotFoundException;
 import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
 import nl.hu.eindopdracht1.domain.service.ColumnService;
+import nl.hu.eindopdracht1.web.dto.CreateColumnDto;
+import nl.hu.eindopdracht1.web.dto.SwitchTaskDto;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +21,12 @@ public class ColumnController {
     private final ColumnService columnService;
 
     @PostMapping
-    public Column createColumn(@RequestBody String columnId){
-        return columnService.save(new Column(columnId));
+    public Column createColumn(@RequestBody CreateColumnDto columnId){
+        return columnService.save(new Column(columnId.getColumnId()));
     }
 
-    @PutMapping("/switch/{oldColumnId}/{newColumnId}/{taskId}")
-    public Column switchTaskBetweenColumns(@PathVariable String oldColumnId, String newColumnId, String taskId) throws ColumnNotFoundException, TaskNotFoundException {
-        return columnService.switchTask(oldColumnId, newColumnId, taskId);
+    @PutMapping("/switch")
+    public Column switchTaskBetweenColumns(@RequestBody SwitchTaskDto switchTaskDto) throws ColumnNotFoundException, TaskNotFoundException {
+        return columnService.switchTask(switchTaskDto.getOldColumnId(), switchTaskDto.getNewColumnId(), switchTaskDto.getTaskId());
     }
 }
