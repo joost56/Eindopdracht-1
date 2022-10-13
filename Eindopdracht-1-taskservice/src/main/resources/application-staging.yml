@@ -1,7 +1,7 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://eindopdracht-first-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/eindopdracht-first-database
+    url: jdbc:postgresql://eindopdracht-first-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/eindopdrachtfirstdatabase
     username: postgres
     password: postgres
 
