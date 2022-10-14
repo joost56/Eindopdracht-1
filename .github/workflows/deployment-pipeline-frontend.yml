@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js v17.0
+      - name: Use Node.js v17.9.0
         uses: actions/setup-node@v3
         with:
-          node-version: '17.0'
+          node-version: '17.9.0'
       - name: Install dependencies
         run: npm install
       - name: Install Angular CLI
