@@ -12,8 +12,12 @@ Update de secrets via de gh cli.
 De frontend is beschikbaar op http://eindopdracht-bucket.s3-website-us-east-1.amazonaws.com/.
 
 ## Documentatie
-Use-case Diagram:
-![UseCaseDiagram](https://user-images.githubusercontent.com/60653502/195855273-bdb3954f-0e74-4e8a-bae7-5a1b69c85cb4.png)
+
+<figure>
+  <img
+  src="![UseCaseDiagram](https://user-images.githubusercontent.com/60653502/195855273-bdb3954f-0e74-4e8a-bae7-5a1b69c85cb4.png)"
+  <figcaption>Use-case Diagram:</figcaption>
+</figure>
 Component Diagram:
 ![ComponentDiagram](https://user-images.githubusercontent.com/60653502/195855305-c83c5d6f-3643-41f4-ae6a-3e58685868bf.png)
 Domein model:
