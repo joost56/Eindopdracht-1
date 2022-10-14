@@ -12,19 +12,13 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.2.Final/mapstruct-processor-1.5.2.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.2.Final/mapstruct-1.5.2.Final.jar" />
         </processorPath>
-        <module name="Eindopdracht-1-taskservice" />
-      </profile>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="Eindopdracht-1-accountservice" />
+        <module name="Eindopdracht-1-taskservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="account-service" target="17" />
       <module name="eindopdracht-1" target="17" />
-      <module name="Eindopdracht-1-accountservice" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

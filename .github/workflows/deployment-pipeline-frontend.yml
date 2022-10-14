@@ -10,7 +10,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: './Eindopdracht-1-user-interface/task-frontend'
+    working-directory: "./Eindopdracht-1-user-interface/task-frontend"
 
 
 jobs:

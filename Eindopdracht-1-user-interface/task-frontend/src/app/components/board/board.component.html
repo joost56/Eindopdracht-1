@@ -1,0 +1,12 @@
+<button (click)="addColumn()">Add Column</button>
+<button (click)="test()">test</button>
+<div cdkDropListGroup>
+  <div
+    *ngFor="let column of (columns$ | async)">
+    <form (ngSubmit)="addTask(column.id, task.value)">
+      <div><label for="task">Task:</label><input type="text" #task></div>
+      <div><button type="submit">Add Task</button></div>
+    </form>
+    <app-column [column] = "column" [drop]=drop ></app-column>
+  </div>
+</div>
