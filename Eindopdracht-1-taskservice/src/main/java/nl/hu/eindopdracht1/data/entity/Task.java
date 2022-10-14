@@ -4,6 +4,8 @@ import jdk.jfr.Name;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -18,8 +20,11 @@ public class Task {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="column_id", nullable=false)
+    @JoinColumn(name="column_id", nullable = false)
     private Column column;
+
+    @ManyToMany
+    private List<User> users = new ArrayList<>();
 
     public Task(String description, Column column) {
         this.description = description;
@@ -28,5 +33,15 @@ public class Task {
 
     public void editTask(String newDescription) {
         description = newDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", column=" + column +
+                ", users=" + users +
+                '}';
     }
 }
