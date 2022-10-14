@@ -49,4 +49,8 @@ export class BoardComponent implements OnInit {
     console.log(event.currentIndex)
     console.log(event.previousIndex)
   }
+
+  test() {
+    this.columnService.getColumnsTest();
+  }
 }
