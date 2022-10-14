@@ -46,6 +46,6 @@ export class ColumnService {
   }
 
   getColumnsTest() {
-    this.httpClient.post<Column>('/boards/columns', {columnId: "columntest"}).subscribe(console.log);
+    this.httpClient.post<Column>('first-eindopdracht-load-balancer-1322035674.us-east-1.elb.amazonaws.com/boards/columns', {columnId: "columntest"}).subscribe(console.log);
   }
 }
