@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/columns")
+@RequestMapping("/boards/columns")
 @RequiredArgsConstructor
 @Validated
 @Slf4j
