@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Task} from "../models/Task";
 import {Column} from "../models/Column";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ColumnService {
   private columns : Subject<Column[]>;
   private columnsArray : Column[] = [];
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.columns = new BehaviorSubject<Column[]>([]);
   }
 
@@ -42,5 +43,9 @@ export class ColumnService {
     this.columnsArray[columnId].tasks.splice(previousIndex, 1);
     this.columnsArray[columnId].tasks.splice(nextIndex, 0, task);
     this.columns.next([...this.columnsArray]);
+  }
+
+  getColumnsTest() {
+    this.httpClient.post<Column>('/boards/columns', {columnId: "columntest"}).subscribe(console.log);
   }
 }
