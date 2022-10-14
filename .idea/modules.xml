@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Eindopdracht-1-accountservice/Eindopdracht-1-accountservice.iml" filepath="$PROJECT_DIR$/Eindopdracht-1-accountservice/Eindopdracht-1-accountservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eindopdracht-1-user-interface/Eindopdracht-1-user-interface.iml" filepath="$PROJECT_DIR$/Eindopdracht-1-user-interface/Eindopdracht-1-user-interface.iml" />
     </modules>
   </component>
