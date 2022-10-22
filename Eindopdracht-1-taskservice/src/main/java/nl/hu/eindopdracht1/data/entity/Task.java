@@ -4,7 +4,7 @@ import jdk.jfr.Name;
 import lombok.*;
 
 import javax.persistence.*;
-
+//idk
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
