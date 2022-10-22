@@ -8,8 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class SwitchTaskDto {
-    private String oldColumnId;
-    private String newColumnId;
-    private Long taskId;
+public class UserIdDto {
+    private String userId;
 }

@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -22,9 +24,9 @@ public class Column {
     @Name("column_id")
     private String id;
 
-    @OneToMany(mappedBy = "column", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "column")
     @javax.persistence.Column
-    private Set<Task> tasks = new HashSet<>();
+    private List<Task> tasks = new ArrayList<>();
 
     public Column(String id) {
         this.id = id;

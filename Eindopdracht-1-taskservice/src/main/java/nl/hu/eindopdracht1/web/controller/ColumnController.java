@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/columns")
+@RequestMapping("/boards/columns")
 @RequiredArgsConstructor
 @Validated
 @Slf4j
@@ -26,7 +26,7 @@ public class ColumnController {
     }
 
     @PutMapping("/switch")
-    public Column switchTaskBetweenColumns(@RequestBody SwitchTaskDto switchTaskDto) throws ColumnNotFoundException, TaskNotFoundException {
+    public Task switchTaskBetweenColumns(@RequestBody SwitchTaskDto switchTaskDto) throws ColumnNotFoundException, TaskNotFoundException {
         return columnService.switchTask(switchTaskDto.getOldColumnId(), switchTaskDto.getNewColumnId(), switchTaskDto.getTaskId());
     }
 }

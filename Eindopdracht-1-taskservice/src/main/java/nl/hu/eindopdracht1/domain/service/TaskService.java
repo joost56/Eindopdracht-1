@@ -7,9 +7,11 @@ import nl.hu.eindopdracht1.data.repository.ColumnRepository;
 import nl.hu.eindopdracht1.data.repository.TaskRepository;
 import nl.hu.eindopdracht1.domain.exception.ColumnNotFoundException;
 import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
+import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
@@ -21,11 +23,11 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task findTaskById(String taskId) throws TaskNotFoundException {
+    public Task findTaskById(Long taskId) throws TaskNotFoundException {
         return this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
     }
 
-    public Task editTask(String taskId, String newDescription) throws TaskNotFoundException {
+    public Task editTask(Long taskId, String newDescription) throws TaskNotFoundException {
         Task task = this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
         task.editTask(newDescription);
         return task;

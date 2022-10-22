@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class TaskCreateDto {
-    private String description;
+public class AssignUserToTaskDto {
+    private String username;
+    private Long taskId;
 }
