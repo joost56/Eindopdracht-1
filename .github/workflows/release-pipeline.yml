@@ -63,9 +63,9 @@ jobs:
 
       - name: Deploy container on EC2
         env:
-          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-          HOSTNAME : ${{ secrets.HOST_NAME_FIRST  }}
-          USER_NAME : ${{ secrets.USER_NAME  }}
+          PRIVATE_KEY: Z/86hfIFI5C/QeJwRvxBz60pRABgq1K1AUAU4fh0
+          HOSTNAME : ec2-54-167-194-33.compute-1.amazonaws.com
+          USER_NAME : ec2-user
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: eindopdracht-ecr
           IMAGE_TAG: v${{ github.run_number }}
