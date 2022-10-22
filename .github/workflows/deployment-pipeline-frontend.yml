@@ -31,9 +31,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-access-key-id: ASIA46RPIWDVV6JTIU7E
+          aws-secret-access-key: mTQwvH0eIfjhvhM2lczYTSk0JgtrRsu+cr1NkldR
+          aws-session-token: FwoGZXIvYXdzEMT//////////wEaDPa2vZER/O7vUb6EUSK+Abro1u3guQtpMA3UzfHNKy+V1mEhhw0NeiWgZ8ak5NFr3+3FJHBtFk/w+eR40cSaO1fl0hbapFOqCmtKNE33+YcX4BcsxPGgrNVzzd7IwJHWUGr/+0eeFba0A0fqM1T1jNkERvCkpV5XZUjOMdb75cWgv6Q3wQhW26XhPbnva9txH1qsFIKDnUZCUdxuxmBXAoqvTvk2wdC1ORhGhpGx3s9U53iCErlJHHauIvVVoOtdRCi8axV3VY5mnPCsYTIo1YPPmgYyLbluZdwWmNbLCZAT7BTWxj3qjoP0eiRseAoqA50WJIippCgYxj/SOgVeWiCzgw==
           aws-region: us-east-1
 
       - name: Upload to S3
