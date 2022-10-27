@@ -32,33 +32,6 @@ class ColumnControllerTest {
     ArgumentCaptor<Iban> columnIdCaptor1;
 
 //    @Test
-//    public void testGetAccountHoldersSuccessful() throws InterruptedException, AccountNotFoundException {
-//        // Given
-//        final String iban = "NL37ABNA9999888877";
-//        final String bsn = "123456";
-//        final String name = "Luuk Pook";
-//        Holder holder = new Holder(bsn, name, null);
-//        List<Holder> holders = new ArrayList<>();
-//        holders.add(holder);
-//        Account account = new Account(Iban.random(), new BigDecimal(123), null, true);
-//        Mockito.when(accountService.findByIban(ibanCaptor1.capture())).thenReturn(Optional.of(account));
-//        Mockito.when(accountService.findAllHoldersByIban(ibanCaptor2.capture())).thenReturn(holders);
-//
-//        // When
-//        final List<HolderDto> holdersResult = accountController.getAccountHolders(iban);
-//
-//        // Then
-//        Mockito.verify(accountService).findByIban(ibanCaptor1.getValue());
-//        assertThat(ibanCaptor1.getValue().toString()).isEqualTo(iban);
-//        Mockito.verify(accountService).findAllHoldersByIban(ibanCaptor2.getValue());
-//        assertThat(ibanCaptor2.getValue().toString()).isEqualTo(iban);
-//        Mockito.verifyNoMoreInteractions(accountService);
-//        assertThat(holdersResult).isNotEmpty();
-//        assertThat(holdersResult.get(0).getBsn()).isEqualTo(bsn);
-//        assertThat(holdersResult.get(0).getName()).isEqualTo(name);
-//    }
-
-//    @Test
 //    void createColumn() throws ColumnNotFoundException {
 //        //given
 //        final String columnId = "Dit is een kolom";
