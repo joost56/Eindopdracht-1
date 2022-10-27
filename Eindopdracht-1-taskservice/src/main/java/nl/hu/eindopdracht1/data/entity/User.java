@@ -22,7 +22,7 @@ public class User {
     @Name("user_id")
     private String username;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     @Column
     private List<Task> tasks = new ArrayList<>();
 

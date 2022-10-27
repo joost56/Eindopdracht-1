@@ -24,6 +24,7 @@ public class Task {
     private Column column;
 
     @ManyToMany
+    @JoinColumn(name = "user_id", nullable = true)
     private List<User> users = new ArrayList<>();
 
     public Task(String description, Column column) {
