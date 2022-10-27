@@ -62,6 +62,7 @@ jobs:
           git push origin "v${GITHUB_RUN_NUMBER}"
 
       - name: Deploy container on EC2
+        working-directory: Eindopdracht-1-taskservice
         env:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
           HOSTNAME : ${{ secrets.HOST_NAME_FIRST  }}
