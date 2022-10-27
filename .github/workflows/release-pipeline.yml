@@ -35,9 +35,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ASIA46RPIWDV44YRZGXL
-          aws-secret-access-key: Z/86hfIFI5C/QeJwRvxBz60pRABgq1K1AUAU4fh0
-          aws-session-token: FwoGZXIvYXdzEMj//////////wEaDEb3swui1kX/DHIgPCK+AV23W6yn2X1vnAgXAV8TdFeb9lcg3GjAce0pJBPuKJCxO6ELLDDFsJhhxvMn03gxzF5WkBXG6Pfaknx8vM+x/gvqFA9J4kcX1Ctv2iYYsE4P9LhfbxfygdvbBW2gqr+rEb6dKeUk9kNaG7eU52cQRSNasN0R5N2H4q2Hb1zFigtV+XsLP2ns44iMPGC31TFIc/L62vRiERQnR0qZOmn6+N/mRGQ5aTeq3kKlRU1HiNbNVTRiMeAoRQdVRaiI8XIo3PfPmgYyLbA4gQU689pVJ3kTh3vx04VLrUh9kifjzIZNni8LKB+bGIz678DS0UUTh6SDIQ==
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
 
       - name: Login to Amazon ECR
@@ -63,9 +63,9 @@ jobs:
 
       - name: Deploy container on EC2
         env:
-          PRIVATE_KEY: -----BEGIN PRIVATE KEY-----MIIEowIBAAKCAQEAnY6/Vn5iMYLjp5DOZP3L7We0IbvHf96pG0HILQAsTM+5FP6flCHvEeQrpPpb4Tk5Ke983JR8C2QhdK0lJaHtrEt/0MLtNWvi4Oa+Yg+VgYWWL56KBI25uQsr6TIu7dERRuJo+vX8n3UsPcrGW7s4GxkrA4QWagQ+wLcyIgug6qiVqZUSWtCovxqPnX5BK4ycTCBFxsaVegOhx1IBEDw957x4gMdHXifsIGh4yv+QEnlzVk/5/kaSSgXmgh/zBQ5tlgpFfO53JpZfRDWZk+fd1Zt94FrpOO9z2poGnEahduIWSpf4e/av2EQuoDxpfiz3QP8EFi7Oz2vOomImsHYZQwIDAQABAoIBADNvjZFcEwxc0Zs7j9WycSegylKU7e0VsJlAYWwneU7eJWrwMQJ4DYcGuSTTwrkFKF9DWrzcEJ7bYnynpc/iTCgKQcDSUgQ1o0yOp6p1sfYluUD0fdQ8vFvnhL9NbbqfnQdKFMGRGpan9vh5QUZjGU7naX5tWa/kkOPzKn+o0jCosQdIDKDshdadkwnvyApbg8nBFG76jzzFqEcpDPEFhdB8h+o7oZt6mwVHwvylXp7N8dPvUVQR27WJN+cT4Ikgp0T7Lxb9dEiwmT9lfyboy4HT5SZtwSYOPRE6Hj+HFUl0jzxSg/B8qftkQ2q1dCtkOHHWERoLbsaJkS4q7bQYqFkCgYEA9CqVfKWrBAeI5nPyhWxjSDOYM4Op3mKFm1Tm1AYC33e0n9e+TxP1vSwDiKrR//uTIhCS9+8o1LeLKp7A4mL4J36Yl3UJkyVy0V5Vkqn48Ei2OxFkFdRjxciqdv4OL/RcSo9C/CdqC77P+ZynTUyDO601MdktJuFAyP6ojimDOJ0CgYEApTGX25LvpXgfmUEPXXtGZxf7kjtGYE17QrT6ctVU1+weq+mYB79xS4R48OL4eyjsv07LXQcGe36U8eWA+sW0rdwpd7rOcLQ6A50d0mF6+mTOfbXWgyGL8RUwKyYSYjYsVYnxFVN0C+YSTvGBF+yYD9Ao4x7Dcy/p9R5VULLPQ18CgYEA8jPzyYvFEuAuivvlTTjxW0Pi7ObkcHcmtakIuLWlz+q8v/qRC3xvPdIVR1K7scPqddYfE9anmCrh38tO5sLqCrNnxoYQk2iIduuu0yfMiv511i4wK/9dYWrmvdbSV/t8OXHXLq4iYbhMMf2Vb/ZAD8iHhgU65uB3FWqX5T2Er3kCgYA2pPwV3zo041KYkIPzqWa1jaJjUgZKrva6L0G1oMoLDwlqVsA6t+JTV8Pl8z69BuGhuv/ciwli6pF8ny2WRrYo2O5Cs+G8OHIEZgHKaQKUN6pyvSbzg7JWEms3qsVkBYWO2i2Mn2mA0h92S78nWdVHTdVoo/GFdfEPa3RPWIblQwKBgGObBYfcVNX3IP3gcAewusPk2YDChJTRVg748uR7UpXM4cTtRvitWwWVGhM73pTT6CWgZFlPHKr3i/4pwybWmOwUvoA1kugoGDmXmy7H7z1j1roX+LtH0ghpSWRyOh05j1RmwBtBgu5QoGyBv20k8nWGJ/hrSBy1+NKYNlQdA1Sz-----END PRIVATE KEY-----
-          HOSTNAME : ec2-54-167-194-33.compute-1.amazonaws.com
-          USER_NAME : ec2-user
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+          HOSTNAME : ${{ secrets.HOST_NAME_FIRST  }}
+          USER_NAME : ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: eindopdracht-ecr
           IMAGE_TAG: v${{ github.run_number }}
