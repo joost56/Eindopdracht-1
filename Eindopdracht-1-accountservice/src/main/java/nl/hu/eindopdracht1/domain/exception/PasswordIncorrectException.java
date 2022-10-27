@@ -1,4 +1,4 @@
-package nl.hu.eindopdracht1.domain;
+package nl.hu.eindopdracht1.domain.exception;
 
 public class PasswordIncorrectException extends Exception {
     public PasswordIncorrectException(String password) {

@@ -47,4 +47,9 @@ public class TaskController {
     public List<User> assignUser(@RequestBody AssignUserToTaskDto assignUserToTaskDto) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
         return userService.assignTaskToUserAndUserToTask(assignUserToTaskDto.getUsername(), assignUserToTaskDto.getTaskId());
     }
+
+    @GetMapping
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
+    }
 }

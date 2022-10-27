@@ -1,10 +1,12 @@
 package nl.hu.eindopdracht1.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class Column {
     @Name("column_id")
     private String id;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "column")
     @javax.persistence.Column
     private List<Task> tasks = new ArrayList<>();

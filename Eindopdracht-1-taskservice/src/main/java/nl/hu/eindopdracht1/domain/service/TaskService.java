@@ -7,6 +7,7 @@ import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,11 @@ public class TaskService {
 
     public Task findTaskById(Long taskId) throws TaskNotFoundException {
         return this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
+    }
+
+    public List<Task> getAllTasks(){
+        return this.taskRepository.findAll();
+
     }
 
     public Task editTask(Long taskId, String newDescription) throws TaskNotFoundException {

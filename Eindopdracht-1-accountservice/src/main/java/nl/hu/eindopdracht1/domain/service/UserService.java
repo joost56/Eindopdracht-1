@@ -3,7 +3,7 @@ package nl.hu.eindopdracht1.domain.service;
 import lombok.RequiredArgsConstructor;
 import nl.hu.eindopdracht1.data.entity.User;
 import nl.hu.eindopdracht1.data.repository.UserRepository;
-import nl.hu.eindopdracht1.domain.PasswordIncorrectException;
+import nl.hu.eindopdracht1.domain.exception.PasswordIncorrectException;
 import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
 import org.springframework.stereotype.Service;
 

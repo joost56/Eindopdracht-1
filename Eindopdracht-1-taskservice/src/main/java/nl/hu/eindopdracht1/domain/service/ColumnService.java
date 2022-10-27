@@ -10,6 +10,7 @@ import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +26,10 @@ public class ColumnService {
 
     public Column findColumnById(String columnId) throws ColumnNotFoundException {
         return this.columnRepository.findById(columnId).orElseThrow(() -> new ColumnNotFoundException(columnId));
+    }
+
+    public List<Column> getAllColums() {
+        return this.columnRepository.findAll();
     }
 
     public Task switchTask(String oldColumnId, String newColumnId, Long taskId) throws ColumnNotFoundException, TaskNotFoundException {

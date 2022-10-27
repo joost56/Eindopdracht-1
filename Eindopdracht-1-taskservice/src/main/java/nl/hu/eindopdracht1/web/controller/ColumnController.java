@@ -12,6 +12,8 @@ import nl.hu.eindopdracht1.web.dto.SwitchTaskDto;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/boards/columns")
 @RequiredArgsConstructor
@@ -23,6 +25,11 @@ public class ColumnController {
     @PostMapping
     public Column createColumn(@RequestBody CreateColumnDto columnId){
         return columnService.save(new Column(columnId.getColumnId()));
+    }
+
+    @GetMapping
+    public List<Column> getAllColumns() {
+        return columnService.getAllColums();
     }
 
     @PutMapping("/switch")

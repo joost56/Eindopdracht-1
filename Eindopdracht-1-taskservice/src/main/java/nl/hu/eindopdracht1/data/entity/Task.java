@@ -1,7 +1,9 @@
 package nl.hu.eindopdracht1.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jdk.jfr.Name;
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class Task {
     private Long id;
     private String description;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="column_id", nullable = false)
     private Column column;
@@ -40,8 +43,7 @@ public class Task {
     public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", description='" + description + '\'' +
-                ", column=" + column +
+                ", description='" + description +
                 ", users=" + users +
                 '}';
     }
