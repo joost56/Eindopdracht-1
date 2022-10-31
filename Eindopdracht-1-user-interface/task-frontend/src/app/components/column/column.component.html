@@ -1,7 +1,7 @@
 <table>
   <tr><th>Column</th></tr>
   <tr>
-    <div [id]="id.toString()"
+    <div [id]= id
          cdkDropList
          (cdkDropListDropped)="drop($event)"
          [cdkDropListData]="(tasksContent$ | async) ?? []">
