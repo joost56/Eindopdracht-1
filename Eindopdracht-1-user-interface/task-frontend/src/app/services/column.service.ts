@@ -21,15 +21,17 @@ export class ColumnService {
   }
 
   updateColumns() {
-    this.httpClient.get<Column[]>('boards/columns').subscribe((columnList) => {
+    this.httpClient.get<Column[]>('/boards/columns').subscribe((columnList) => {
       this.columnsArray = columnList;
       this.columns.next([...this.columnsArray])
     })
   }
 
   createColumn(name: string) {
-    this.httpClient.post<Column>('boards/columns', {columnId: name})
-      .subscribe(() => {
+    console.log("columname: " + name);
+    this.httpClient.post<Column>('/boards/columns', {columnId: name})
+      .subscribe((column) => {
+        console.log(column);
       this.updateColumns();
     })
   }
@@ -52,5 +54,9 @@ export class ColumnService {
       .subscribe(() => {
         this.updateColumns();
       });
+  }
+
+  getColumnsTest() {
+    this.httpClient.post<Column>('/boards/columns', {columnId: "columntest"}).subscribe(console.log);
   }
 }
