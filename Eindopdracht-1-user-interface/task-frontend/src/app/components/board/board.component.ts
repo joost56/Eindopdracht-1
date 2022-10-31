@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop} from "@angular/cdk/drag-drop";
 import {Column} from "../../models/Column";
 import {Observable, of} from "rxjs";
-import {Task} from "../../models/Task";
 import {TaskService} from "../../services/task.service";
 import {ColumnService} from "../../services/column.service";
 
@@ -12,7 +11,6 @@ import {ColumnService} from "../../services/column.service";
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  task: Task = { content: ""}
   columns$: Observable<Column[]> = of([]);
 
   constructor(private taskService : TaskService, private columnService: ColumnService) { }
@@ -25,32 +23,24 @@ export class BoardComponent implements OnInit {
   ngOnChanges() : void {
   }
 
-  addColumn() : void {
-    this.columnService.createColumn()
+  addColumn(name: string) : void {
+    this.columnService.createColumn(name);
   }
 
-  addTask(columnId: number, taskContent: string) : void {
+  addTask(columnId: string, taskContent: string) : void {
     this.columnService.addTask(columnId, taskContent);
   }
 
   drop = (event: CdkDragDrop<string[]>) => {
-      if (event.previousContainer === event.container) {
-        this.columnService.moveTaskInColumn(parseInt(event.container.id),
-          event.previousIndex,
-          event.currentIndex);
-      } else {
+    if (event.previousContainer !== event.container) {
         this.columnService.moveTaskBetweenColumns(parseInt(event.previousContainer.id),
           parseInt(event.container.id),
           event.previousIndex,
           event.currentIndex)
     }
-    console.log(event.container.id)
-    console.log(event.previousContainer.id)
-    console.log(event.currentIndex)
-    console.log(event.previousIndex)
-  }
-
-  test() {
-    this.columnService.getColumnsTest();
+    console.log(event.container.id);
+    console.log(event.previousContainer.id);
+    console.log(event.currentIndex);
+    console.log(event.previousIndex);
   }
 }

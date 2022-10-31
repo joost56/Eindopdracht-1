@@ -25,7 +25,7 @@ export class ColumnComponent implements OnInit {
     this._column = value;
     this.tasks$ = of(value.tasks);
     this.tasksContent$ = of(value.tasks.map(function (task) {
-      return task.content;
+      return task.description;
     }))
     this.id = value.id;
     this.connectedTo.push(value.id.toString());

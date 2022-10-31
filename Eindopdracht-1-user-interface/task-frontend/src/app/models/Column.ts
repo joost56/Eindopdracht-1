@@ -1,5 +1,5 @@
 import {Task} from "./Task"
 export interface Column {
-  id: number;
+  id: string;
   tasks: Array<Task>;
 }
