@@ -13,11 +13,11 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag
 })
 export class ColumnComponent implements OnInit {
   @Input() drop!: (event: CdkDragDrop<string[]>) => void;
-  _column : Column = {id: 0, tasks: []};
+  _column : Column = {id: "id was not properly set", tasks: []};
   connectedTo: string[] = [];
   tasksContent$: Observable<string[]> = of([]);
   tasks$: Observable<Task[]> = of([]);
-  id: number = 0;
+  id: string = "";
 
   constructor(private taskService : TaskService, private columnService: ColumnService) { }
 
