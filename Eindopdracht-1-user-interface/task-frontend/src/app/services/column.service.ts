@@ -22,6 +22,7 @@ export class ColumnService {
 
   updateColumns() {
     this.httpClient.get<Column[]>('/boards/columns').subscribe((columnList) => {
+      console.log(columnList)
       this.columnsArray = columnList;
       this.columns.next([...this.columnsArray])
     })
