@@ -7,7 +7,7 @@
          [cdkDropListData]="(tasksContent$ | async) ?? []">
       <div
         *ngFor="let task of (tasks$ | async)">
-        <div cdkDrag>{{task.content}}</div>
+        <div cdkDrag>{{task.description}}</div>
       </div>
     </div>
   </tr>
