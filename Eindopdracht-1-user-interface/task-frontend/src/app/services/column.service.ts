@@ -21,14 +21,14 @@ export class ColumnService {
   }
 
   updateColumns() {
-    this.httpClient.get<Column[]>('/boards/columns').subscribe((columnList) => {
+    this.httpClient.get<Column[]>('boards/columns').subscribe((columnList) => {
       this.columnsArray = columnList;
       this.columns.next([...this.columnsArray])
     })
   }
 
   createColumn(name: string) {
-    this.httpClient.post<Column>('boards/columns', {id: name})
+    this.httpClient.post<Column>('boards/columns', {columnId: name})
       .subscribe(() => {
       this.updateColumns();
     })
