@@ -34,10 +34,9 @@ export class BoardComponent implements OnInit {
 
   drop = (event: CdkDragDrop<string[]>) => {
     if (event.previousContainer !== event.container) {
-        this.columnService.moveTaskBetweenColumns(parseInt(event.previousContainer.id),
-          parseInt(event.container.id),
-          event.previousIndex,
-          event.currentIndex)
+        this.columnService.moveTaskBetweenColumns(event.previousContainer.id,
+          event.container.id,
+          event.previousIndex)
     }
     console.log(event.container.id);
     console.log(event.previousContainer.id);
