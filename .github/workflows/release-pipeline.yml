@@ -48,7 +48,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: eindopdracht-ecr
+          ECR_REPOSITORY: task-ecr-repository
           IMAGE_TAG: v${{ github.run_number }}
         working-directory: Eindopdracht-1-taskservice
         run: |
