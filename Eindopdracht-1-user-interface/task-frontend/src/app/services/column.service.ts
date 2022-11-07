@@ -33,7 +33,7 @@ export class ColumnService {
     console.log("columname: " + name);
     this.httpClient.post<Column>('/boards/columns', {columnId: name})
       .subscribe((column) => {
-        console.log(column);
+        console.log("created column: " + column);
       this.updateColumns();
     })
   }
@@ -45,12 +45,8 @@ export class ColumnService {
       });
   };
 
-  moveTaskBetweenColumns(previousColumnId: number, nextColumnId: number, previousIndex: number, nextIndex: number) {
-    // const task = this.columnsArray[previousColumnId].tasks[previousIndex]
-    // this.columnsArray[nextColumnId].tasks.splice(nextIndex, 0, task);
-    // this.columnsArray[previousColumnId].tasks.splice(previousIndex, 1);
-    // this.columns.next([...this.columnsArray]);
-    const task = this.columnsArray[previousColumnId].tasks[previousIndex]
+  moveTaskBetweenColumns(previousColumnId: string, nextColumnId: string, previousIndex: number) {
+    const task = this.columnsArray.filter((column) => column.id == previousColumnId)[0].tasks[previousIndex]
     this.httpClient.put<SwitchColumn>('/boards/columns/switch',
       {oldColumnId: previousColumnId, newColumnId: nextColumnId, taskId: task.id})
       .subscribe(() => {
