@@ -4,6 +4,7 @@ spring:
     url: jdbc:postgresql://task-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres
     username: postgres
     password: eindopdracht-1
+# 
 #  spring:
 #    datasource:
 #    url: jdbc:postgresql://localhost:5433/testdb
