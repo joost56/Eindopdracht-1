@@ -28,6 +28,13 @@ jobs:
         run: npm install -g @angular/cli
       - name: Build production version
         run: ng build
+      - name: Code Analysis
+        working-directory: Eindopdracht-1-user-interface
+        run: |
+          mvn sonar:sonar \
+          -Dsonar.projectKey=eindopdracht-1-tygo-joost \
+          -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
+          -Dsonar.login=45d50dd41d616b6d7bcb94387588d9ea2a89c7da
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
