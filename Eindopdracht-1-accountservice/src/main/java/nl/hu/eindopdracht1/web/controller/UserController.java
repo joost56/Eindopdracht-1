@@ -24,15 +24,15 @@ public class UserController {
         return userService.register(userDto.getUsername(), userDto.getPassword());
     }
 
-    @GetMapping("/logIn")
+    @PostMapping("/login")
     public boolean logIn(@RequestBody UserDto userDto) throws UserNotFoundException, PasswordIncorrectException {
         return userService.logIn(userDto.getUsername(), userDto.getPassword());
     }
 
-    @PostMapping("/getUser")
-    public boolean getUserById(@RequestBody UserIdDto userIdDto) {
+    @GetMapping("/{id}")
+    public boolean getUserById(@PathVariable String id) {
         try {
-            userService.findUserById(userIdDto.getUserId());
+            userService.findUserById(id);
             return true;
         }catch (UserNotFoundException e) {
             return false;
