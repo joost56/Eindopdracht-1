@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:postgresql://task-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="postgres@account-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com" uuid="9faf1295-86da-4de6-b2ae-48997fa66ff3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://account-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

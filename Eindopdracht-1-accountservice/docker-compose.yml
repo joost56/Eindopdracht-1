@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://task-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://account-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=eindopdracht-1
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
