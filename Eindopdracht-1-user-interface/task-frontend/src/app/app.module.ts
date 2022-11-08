@@ -11,13 +11,18 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ColumnComponent } from './components/column/column.component';
 import { BoardComponent } from './components/board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
+import {userReducer} from "./reducers/user.reducer";
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ColumnComponent,
     ColumnComponent,
-    BoardComponent
+    BoardComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({ username: userReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

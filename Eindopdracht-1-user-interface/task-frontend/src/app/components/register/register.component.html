@@ -1,0 +1,12 @@
+<form (ngSubmit)="register()">
+  <div *ngIf="username.invalid && (username.dirty || username.touched)"
+       class="alert">
+
+    <div *ngIf="username.errors && username.errors['minlength']">
+      Minimum username length is 4.
+    </div>
+  </div>
+  <div><label for="username">Username:</label><input minlength=4 type="text" name="username" #username="ngModel" [(ngModel)]="user.username"></div>
+  <div><label for="password">Password:</label><input type="password" name="password" [(ngModel)]="user.password"></div>
+  <div><button type="submit">Register!</button></div>
+</form>
