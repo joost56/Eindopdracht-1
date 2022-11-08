@@ -34,7 +34,7 @@ jobs:
           mvn sonar:sonar \
           -Dsonar.projectKey=eindopdracht-1-tygo-joost \
           -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
-          -Dsonar.login=45d50dd41d616b6d7bcb94387588d9ea2a89c7da
+          -Dsonar.login=66e058714fe07b06fd574e65933f263b56731f37
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
