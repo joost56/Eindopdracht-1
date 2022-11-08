@@ -62,7 +62,7 @@ jobs:
         working-directory: Eindopdracht-1-accountservice
         env:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-          HOSTNAME : ${{ secrets.HOST_NAME_FIRST  }}
+          HOSTNAME : ${{ secrets.HOST_NAME_SECOND  }}
           USER_NAME : ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: 890231107819.dkr.ecr.us-east-1.amazonaws.com
           ECR_REPOSITORY: account-ecr-repository
