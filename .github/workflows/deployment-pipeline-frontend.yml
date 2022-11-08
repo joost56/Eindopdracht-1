@@ -32,7 +32,7 @@ jobs:
         working-directory: Eindopdracht-1-user-interface
         run: |
           mvn sonar:sonar \
-          -Dsonar.projectKey=eindopdracht-1-tygo-joost \
+          -Dsonar.projectKey=eindopdracht-1-frontend \
           -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
           -Dsonar.login=66e058714fe07b06fd574e65933f263b56731f37
       - name: Configure AWS credentials
