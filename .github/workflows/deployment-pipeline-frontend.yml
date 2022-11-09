@@ -31,7 +31,7 @@ jobs:
       - name: Code Analysis
         working-directory: Eindopdracht-1-user-interface
         run: |
-          mvn sonar:sonar \
+          sonar-scanner \
           -Dsonar.projectKey=eindopdracht-1-frontend \
           -Dsonar.host.url=http://sonar.cloud-native-minor.it/ \
           -Dsonar.login=66e058714fe07b06fd574e65933f263b56731f37
