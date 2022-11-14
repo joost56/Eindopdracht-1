@@ -46,6 +46,15 @@ public class Task {
         this.users = users;
     }
 
+    public Task(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    public Task(String description) {
+        this.description = description;
+    }
+
     public void editTask(String newDescription) {
         description = newDescription;
     }

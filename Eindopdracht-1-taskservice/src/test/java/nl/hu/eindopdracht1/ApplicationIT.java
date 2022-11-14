@@ -4,6 +4,8 @@ import nl.hu.eindopdracht1.data.entity.Column;
 import nl.hu.eindopdracht1.data.entity.Task;
 import nl.hu.eindopdracht1.data.entity.User;
 import nl.hu.eindopdracht1.domain.exception.TaskAlreadyAssignedToUser;
+import nl.hu.eindopdracht1.web.dto.CreateColumnDto;
+import nl.hu.eindopdracht1.web.dto.CreateTaskDto;
 import nl.hu.eindopdracht1.web.dto.SwitchTaskDto;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -18,6 +20,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
@@ -49,28 +52,30 @@ public class ApplicationIT {
     @Test
     void whenTaskIsCreatedTaskIsAddedToColumn() {
         //Given
-        final var switchTaskBetweenColumnsUri = "http://localhost:" + 8081 + "/boards/columns/switch";
-        final var taskUri = "http://localhost:" + 8081 + "/boards/tasks/1";
-        final var columnUri1 = "http://localhost:" + 8081 + "/boards/columns/kolom1";
-        final var columnUri2 = "http://localhost:" + 8081 + "/boards/columns/kolom2";
-        final var switchRequest = new SwitchTaskDto("kolom1", "kolom2", 1L);
+        final var columnUri = "http://localhost:" + 8080 + "/boards/columns";
+        final var columnRequest = new CreateColumnDto("kolom1");
+        final var taskRequest = new CreateTaskDto("kolom1", "Dit is een task");
+        final var taskUri = "http://localhost:" + 8080 + "/boards/tasks";
+        final var taskGetUri = "http://localhost:" + 8080 + "/boards/tasks/1";
 
         //When
-        HttpEntity<SwitchTaskDto> requestUpdate = new HttpEntity<>(switchRequest);
-        var response = this.restTemplate.exchange(switchTaskBetweenColumnsUri, HttpMethod.PUT, requestUpdate, SwitchTaskDto.class);
-        System.out.println(response);
-        assertThat(response.hasBody()).isTrue();
-        System.out.println(response);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        HttpEntity<CreateColumnDto> requestPostColumn = new HttpEntity<>(columnRequest);
+        ResponseEntity<CreateColumnDto> responseColumn = this.restTemplate.exchange(columnUri, HttpMethod.POST, requestPostColumn, CreateColumnDto.class);
+        assertThat(responseColumn.hasBody()).isTrue();
+        assertThat(responseColumn.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        HttpEntity<CreateTaskDto> requestPostTask = new HttpEntity<>(taskRequest);
+        ResponseEntity<CreateTaskDto> responseTask = this.restTemplate.exchange(taskUri, HttpMethod.POST, requestPostTask, CreateTaskDto.class);
+        assertThat(responseTask.hasBody()).isTrue();
+        System.out.println(responseTask.getBody());
+        assertThat(responseTask.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         //Then
-        var task = this.restTemplate.getForEntity(taskUri, Task.class);
-        var column1 = this.restTemplate.getForEntity(columnUri1, Column.class);
-        var column2 = this.restTemplate.getForEntity(columnUri2, Column.class);
-        assertThat(task.hasBody()).isTrue();
-
-//        assertThat(task.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        assertThat(task.getBody().getColumn().getId()).isEqualTo("kolom2");
+        var column = this.restTemplate.getForEntity(taskGetUri, Column.class);
+        assertThat(column.hasBody()).isTrue();
+        System.out.println(column.hasBody());
+        assertThat(column.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(column.getBody().getTasks().contains(responseTask));
     }
 
 //    @Test
