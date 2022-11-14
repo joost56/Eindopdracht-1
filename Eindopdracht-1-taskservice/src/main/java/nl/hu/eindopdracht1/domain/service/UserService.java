@@ -57,8 +57,10 @@ public class UserService {
 
     public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
         boolean userExists = Boolean.parseBoolean(getUserById(configUri.getUri(), username).body());
-        save(new User(username));
         if (userExists) {
+            if (!userRepository.findById(username).isPresent()) {
+                save(new User(username));
+            }
             User user = findUserById(username);
             Task task = taskService.findTaskById(taskId);
             System.out.println(user.getTasks());

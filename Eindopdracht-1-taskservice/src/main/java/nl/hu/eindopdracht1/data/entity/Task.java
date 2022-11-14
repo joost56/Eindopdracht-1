@@ -35,6 +35,17 @@ public class Task {
         this.column = column;
     }
 
+    public Task(Long id, String description, Column column) {
+        this.id = id;
+        this.description = description;
+        this.column = column;
+    }
+
+    public Task(String description, List<User> users) {
+        this.description = description;
+        this.users = users;
+    }
+
     public void editTask(String newDescription) {
         description = newDescription;
     }

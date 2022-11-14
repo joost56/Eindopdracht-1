@@ -52,4 +52,9 @@ public class TaskController {
     public List<Task> getAllTasks() {
         return taskService.getAllTasks();
     }
+
+    @GetMapping("/{taskId}")
+    public Task getTask(@PathVariable Long taskId) throws TaskNotFoundException {
+        return taskService.findTaskById(taskId);
+    }
 }

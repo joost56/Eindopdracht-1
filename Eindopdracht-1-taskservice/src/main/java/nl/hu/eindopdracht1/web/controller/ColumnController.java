@@ -32,6 +32,11 @@ public class ColumnController {
         return columnService.getAllColums();
     }
 
+    @GetMapping("/{columnId}")
+    public Column getColumn(@PathVariable String columnId) throws ColumnNotFoundException {
+        return columnService.findColumnById(columnId);
+    }
+
     @PutMapping("/switch")
     public Task switchTaskBetweenColumns(@RequestBody SwitchTaskDto switchTaskDto) throws ColumnNotFoundException, TaskNotFoundException {
         return columnService.switchTask(switchTaskDto.getOldColumnId(), switchTaskDto.getNewColumnId(), switchTaskDto.getTaskId());
