@@ -50,7 +50,7 @@ class UserServiceTest {
         final boolean correctLogin = userService.logIn("user1", "pass");
 
         //Then
-        Mockito.verify(userRepository, Mockito.times(2)).findById("user1");
+        Mockito.verify(userRepository, Mockito.times(1)).findById("user1");
         assertThat(correctLogin).isEqualTo(true);
     }
 
