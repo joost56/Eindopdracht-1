@@ -31,22 +31,4 @@ class UserServiceTest {
     @Mock
     UserRepository userRepository;
 
-
-
-//    @Test
-//    public void testAccountCreationWithNoHolder() {
-//        // Given
-//        Account account = new Account(null, new BigDecimal(123), new HashSet<>(), true);
-//
-//        // When
-//        Throwable thrown = catchThrowable(() -> {
-//            final Account accountResult = accountService.create(account);
-//        });
-//
-//        // Then
-//        assertThat(thrown)
-//                .isInstanceOf(NoAccountHolderException.class)
-//                .hasMessageContaining("has no holder");
-//        Mockito.verify(accountRepository, Mockito.times(0)).save(account);
-//    }
 }

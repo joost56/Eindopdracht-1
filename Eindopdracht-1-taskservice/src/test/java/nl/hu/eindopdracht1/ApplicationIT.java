@@ -67,7 +67,6 @@ public class ApplicationIT {
         HttpEntity<CreateTaskDto> requestPostTask = new HttpEntity<>(taskRequest);
         ResponseEntity<CreateTaskDto> responseTask = this.restTemplate.exchange(taskUri, HttpMethod.POST, requestPostTask, CreateTaskDto.class);
         assertThat(responseTask.hasBody()).isTrue();
-        System.out.println(responseTask.getBody());
         assertThat(responseTask.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         //Then
@@ -79,12 +78,58 @@ public class ApplicationIT {
     }
 
 //    @Test
+//    void whenTaskIsSwitchedBetweenColumnsThenTaskHasCorrectColumn() {
+//        //Given
+//        final var columnRequest = new CreateColumnDto("kolom1");
+//        final var columnRequest2 = new CreateColumnDto("kolom2");
+//        final var columnUri = "http://localhost:" + 8080 + "/boards/columns";
+//        final var taskRequest = new CreateTaskDto("kolom1", "Dit is een task");
+//        final var taskUri = "http://localhost:" + 8080 + "/boards/tasks";
+//        final var switchRequest = new SwitchTaskDto("kolom1", "kolom2", 1L);
+//        final var switchUri = "http://localhost:" + 8080 + "/boards/columns/switch";
+//        final var getColumnUri1 = "http://localhost:" + 8080 + "/boards/columns/kolom1";
+//        final var getColumnUri2 = "http://localhost:" + 8080 + "/boards/columns/kolom2";
+//
+//        //When
+//        HttpEntity<CreateColumnDto> requestPostColumn = new HttpEntity<>(columnRequest);
+//        ResponseEntity<CreateColumnDto> responseColumn = this.restTemplate.exchange(columnUri, HttpMethod.POST, requestPostColumn, CreateColumnDto.class);
+//        HttpEntity<CreateColumnDto> requestPostColumn2 = new HttpEntity<>(columnRequest2);
+//        ResponseEntity<CreateColumnDto> responseColumn2 = this.restTemplate.exchange(columnUri, HttpMethod.POST, requestPostColumn2, CreateColumnDto.class);
+//        assertThat(responseColumn.hasBody()).isTrue();
+//        assertThat(responseColumn2.hasBody()).isTrue();
+//        assertThat(responseColumn.getStatusCode()).isEqualTo(HttpStatus.OK);
+//        assertThat(responseColumn2.getStatusCode()).isEqualTo(HttpStatus.OK);
+//
+//        HttpEntity<CreateTaskDto> requestPostTask = new HttpEntity<>(taskRequest);
+//        ResponseEntity<CreateTaskDto> responseTask = this.restTemplate.exchange(taskUri, HttpMethod.POST, requestPostTask, CreateTaskDto.class);
+//        assertThat(responseTask.hasBody()).isTrue();
+//        assertThat(responseTask.getStatusCode()).isEqualTo(HttpStatus.OK);
+//
+//        HttpEntity<SwitchTaskDto> requestSwitchTask = new HttpEntity<>(switchRequest);
+//        ResponseEntity<SwitchTaskDto> responseSwitch = this.restTemplate.exchange(switchUri, HttpMethod.PUT, requestSwitchTask, SwitchTaskDto.class);
+//        assertThat(responseSwitch.hasBody()).isTrue();
+//        assertThat(responseSwitch.getStatusCode()).isEqualTo(HttpStatus.OK);
+//
+//        //Then
+//        var column1 = this.restTemplate.getForEntity(getColumnUri1, Column.class);
+//        var column2 = this.restTemplate.getForEntity(getColumnUri2, Column.class);
+//        assertThat(column1.hasBody()).isTrue();
+//        assertThat(column1.getStatusCode()).isEqualTo(HttpStatus.OK);
+//        Task task = column1.getBody().getTasks().get(0);
+//        assertThat(task.getId() != 1);
+//        assertThat(column2.hasBody()).isTrue();
+//        assertThat(column2.getStatusCode()).isEqualTo(HttpStatus.OK);
+//        Task task2 = column2.getBody().getTasks().get(0);
+//        assertThat(task2.getId() == 1);
+//    }
+
+//    @Test
 //    void assignTaskToNonExistingUser() throws IOException, InterruptedException {
 //        //Given
 //        User user = new User("username");
-//        List<User> users = new ArrayList<>();
-//        users.add(user);
-//        Task task = new Task("description", users);
+////        List<User> users = new ArrayList<>();
+////        users.add(user);
+////        Task task = new Task("description", users);
 //
 //        //When
 //        Mockito.when(userService.getUserById(null, "username")).thenReturn((java.net.http.HttpResponse<String>) HttpResponse.response("true"));

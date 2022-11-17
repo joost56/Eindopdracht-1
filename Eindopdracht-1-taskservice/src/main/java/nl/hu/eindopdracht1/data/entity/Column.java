@@ -35,10 +35,6 @@ public class Column {
         this.id = id;
     }
 
-    public boolean addTask(Task task) {
-        return tasks.add(task);
-    }
-
     public boolean removeTask(Task task) {
         return tasks.remove(task);
     }
