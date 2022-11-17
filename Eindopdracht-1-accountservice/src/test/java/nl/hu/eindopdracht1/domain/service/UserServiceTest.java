@@ -54,14 +54,14 @@ class UserServiceTest {
         assertThat(correctLogin).isEqualTo(true);
     }
 
-//    @Test
-//    public void tesLogInUnSuccesful() {
-//        //Given
-//        User user = new User("user1", "pass");
-//        userRepository.save(user);
-//        Mockito.when(userRepository.findById("user1")).thenReturn(java.util.Optional.of(user));
-//
-//        //Then
-//        assertThrows(PasswordIncorrectException.class, () -> userService.logIn("user1", "incorrectpass"));
-//    }
+    @Test
+    public void tesLogInUnSuccesful() {
+        //Given
+        User user = new User("user1", "pass");
+        userRepository.save(user);
+        Mockito.when(userRepository.findById("user1")).thenReturn(java.util.Optional.of(user));
+
+        //Then
+        assertThrows(PasswordIncorrectException.class, () -> userService.logIn("user1", "incorrectpass"));
+    }
 }
