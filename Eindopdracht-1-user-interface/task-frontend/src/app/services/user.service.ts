@@ -19,10 +19,9 @@ export class UserService {
   }
 
   register(user: User) {
-    this.httpClient.post<User>('/users/register', {username: user.username, password: user.password})
-      .subscribe((user) => {
-        console.log("registered user with username: " + user.username)
-      })
+    console.log("trying to register user with username: " + user.username + " and password : " + user.password);
+    this.httpClient.post<boolean>('/users/register', {username: user.username, password: user.password})
+      .subscribe(console.log)
   }
 
   login(user: User) {
