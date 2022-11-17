@@ -24,20 +24,20 @@ class UserServiceTest {
     UserService userService;
     @Captor
     ArgumentCaptor<User> userArgumentCaptor;
-//    @Test
-//    public void testAccountCreationSuccessful() {
-//        //Given
-//        User user = new User("user1", "pass");
-//        Mockito.when(userRepository.save(userArgumentCaptor.capture())).thenReturn(user);
-//
-//        //When
-//        final User userRes = userService.save(user);
-//
-//        //Then
-//        Mockito.verify(userRepository, Mockito.times(1)).save(user);
-//        assertThat(userRes).isEqualTo(user);
-//        assertThat(userArgumentCaptor.getValue()).isEqualTo(user);
-//    }
+    @Test
+    public void testAccountCreationSuccessful() {
+        //Given
+        User user = new User("user1", "pass");
+        Mockito.when(userRepository.save(userArgumentCaptor.capture())).thenReturn(user);
+
+        //When
+        final User userRes = userService.save(user);
+
+        //Then
+        Mockito.verify(userRepository, Mockito.times(1)).save(user);
+        assertThat(userRes).isEqualTo(user);
+        assertThat(userArgumentCaptor.getValue()).isEqualTo(user);
+    }
 
     @Test
     public void testLogInSuccessful() throws UserNotFoundException, PasswordIncorrectException {
