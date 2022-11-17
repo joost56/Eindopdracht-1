@@ -52,11 +52,11 @@ public class ApplicationIT {
     @Test
     void whenTaskIsCreatedTaskIsAddedToColumn() {
         //Given
-        final var columnUri = "http://localhost:" + 8080 + "/boards/columns";
+        final var columnUri = "http://localhost:" + 44239 + "/boards/columns";
         final var columnRequest = new CreateColumnDto("kolom1");
         final var taskRequest = new CreateTaskDto("kolom1", "Dit is een task");
-        final var taskUri = "http://localhost:" + 8080 + "/boards/tasks";
-        final var taskGetUri = "http://localhost:" + 8080 + "/boards/tasks/1";
+        final var taskUri = "http://localhost:" + 44239 + "/boards/tasks";
+        final var taskGetUri = "http://localhost:" + 44239 + "/boards/tasks/1";
 
         //When
         HttpEntity<CreateColumnDto> requestPostColumn = new HttpEntity<>(columnRequest);

@@ -40,8 +40,8 @@ public class ApplicationIT {
     @Test
     void whenUserIsCreatedThenUserIsAvailable() {
         //Given
-        final var userUri = "http://localhost:" + 8080 + "/users/1";
-        final var registerUri = "http://localhost:" + 8080 + "/users/register";
+        final var userUri = "http://localhost:" + 44239 + "/users/1";
+        final var registerUri = "http://localhost:" + 44239 + "/users/register";
         final var userRequest = new UserDto("user", "pass");
 
         //When
@@ -59,8 +59,8 @@ public class ApplicationIT {
     @Test
     void whenUserIsCreatedThenLogInIsAvailable() {
         //Given
-        final var userUri = "http://localhost:" + 8080 + "/users/login";
-        final var registerUri = "http://localhost:" + 8080 + "/users/register";
+        final var userUri = "http://localhost:" + 44239 + "/users/login";
+        final var registerUri = "http://localhost:" + 44239 + "/users/register";
         final var userRequest = new UserDto("user", "pass");
 
         //When
