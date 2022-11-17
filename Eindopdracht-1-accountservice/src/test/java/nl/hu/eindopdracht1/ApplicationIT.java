@@ -37,45 +37,45 @@ public class ApplicationIT {
         this.patchRestTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory(httpClient));
     }
 
-//    @Test
-//    void whenUserIsCreatedThenUserIsAvailable() {
-//        //Given
-//        final var userUri = "http://localhost:" + 8080 + "/users/1";
-//        final var registerUri = "http://localhost:" + 8080 + "/users/register";
-//        final var userRequest = new UserDto("user", "pass");
-//
-//        //When
-//        HttpEntity<UserDto> requestPost = new HttpEntity<>(userRequest);
-//        ResponseEntity<UserDto> response = this.restTemplate.exchange(registerUri, HttpMethod.POST, requestPost, UserDto.class);
-//        assertThat(response.hasBody()).isTrue();
-//        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-//
-//        //Then
-//        var user = this.restTemplate.getForEntity(userUri, String.class);
-//        assertThat(user.hasBody()).isTrue();
-//        assertThat(user.getStatusCode()).isEqualTo(HttpStatus.OK);
-//    }
-//
-//    @Test
-//    void whenUserIsCreatedThenLogInIsAvailable() {
-//        //Given
-//        final var userUri = "http://localhost:" + 8080 + "/users/login";
-//        final var registerUri = "http://localhost:" + 8080 + "/users/register";
-//        final var userRequest = new UserDto("user", "pass");
-//
-//        //When
-//        HttpEntity<UserDto> requestPost = new HttpEntity<>(userRequest);
-//        ResponseEntity<UserDto> response = this.restTemplate.exchange(registerUri, HttpMethod.POST, requestPost, UserDto.class);
-//        assertThat(response.hasBody()).isTrue();
-//        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-//
-//        //Then
-//        HttpEntity<UserDto> requestPostLogin = new HttpEntity<>(userRequest);
-//        ResponseEntity<Boolean> response1 = this.restTemplate.exchange(userUri, HttpMethod.POST, requestPostLogin, Boolean.class);
-//        assertThat(response1.hasBody()).isTrue();
-//        assertThat(response1.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        response1.getBody();
-//        assertThat(true);
-//
-//    }
+    @Test
+    void whenUserIsCreatedThenUserIsAvailable() {
+        //Given
+        final var userUri = "http://localhost:" + 8080 + "/users/1";
+        final var registerUri = "http://localhost:" + 8080 + "/users/register";
+        final var userRequest = new UserDto("user", "pass");
+
+        //When
+        HttpEntity<UserDto> requestPost = new HttpEntity<>(userRequest);
+        ResponseEntity<UserDto> response = this.restTemplate.exchange(registerUri, HttpMethod.POST, requestPost, UserDto.class);
+        assertThat(response.hasBody()).isTrue();
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        //Then
+        var user = this.restTemplate.getForEntity(userUri, String.class);
+        assertThat(user.hasBody()).isTrue();
+        assertThat(user.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
+
+    @Test
+    void whenUserIsCreatedThenLogInIsAvailable() {
+        //Given
+        final var userUri = "http://localhost:" + 8080 + "/users/login";
+        final var registerUri = "http://localhost:" + 8080 + "/users/register";
+        final var userRequest = new UserDto("user", "pass");
+
+        //When
+        HttpEntity<UserDto> requestPost = new HttpEntity<>(userRequest);
+        ResponseEntity<UserDto> response = this.restTemplate.exchange(registerUri, HttpMethod.POST, requestPost, UserDto.class);
+        assertThat(response.hasBody()).isTrue();
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        //Then
+        HttpEntity<UserDto> requestPostLogin = new HttpEntity<>(userRequest);
+        ResponseEntity<Boolean> response1 = this.restTemplate.exchange(userUri, HttpMethod.POST, requestPostLogin, Boolean.class);
+        assertThat(response1.hasBody()).isTrue();
+        assertThat(response1.getStatusCode()).isEqualTo(HttpStatus.OK);
+        response1.getBody();
+        assertThat(true);
+
+    }
 }
