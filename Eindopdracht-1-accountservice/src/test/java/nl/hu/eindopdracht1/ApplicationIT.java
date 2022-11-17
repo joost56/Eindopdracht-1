@@ -25,6 +25,9 @@ import java.util.Random;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
 public class ApplicationIT {
+    @LocalServerPort
+    private int port;
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -40,8 +43,8 @@ public class ApplicationIT {
     @Test
     void whenUserIsCreatedThenUserIsAvailable() {
         //Given
-        final var userUri = "http://localhost:" + 44239 + "/users/1";
-        final var registerUri = "http://localhost:" + 44239 + "/users/register";
+        final var userUri = "http://localhost:" + port + "/users/1";
+        final var registerUri = "http://localhost:" + port + "/users/register";
         final var userRequest = new UserDto("user", "pass");
 
         //When
@@ -59,8 +62,8 @@ public class ApplicationIT {
     @Test
     void whenUserIsCreatedThenLogInIsAvailable() {
         //Given
-        final var userUri = "http://localhost:" + 44239 + "/users/login";
-        final var registerUri = "http://localhost:" + 44239 + "/users/register";
+        final var userUri = "http://localhost:" + port + "/users/login";
+        final var registerUri = "http://localhost:" + port + "/users/register";
         final var userRequest = new UserDto("user", "pass");
 
         //When
