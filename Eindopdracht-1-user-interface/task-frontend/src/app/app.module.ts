@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import {userReducer} from "./reducers/user.reducer";
 import { RegisterComponent } from './components/register/register.component';
-// 
+import {MatExpansionModule} from "@angular/material/expansion";
+//
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,15 +25,16 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    DragDropModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    StoreModule.forRoot({ username: userReducer }),
-  ],
+    imports: [
+        BrowserModule,
+        DragDropModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        StoreModule.forRoot({username: userReducer}),
+        MatExpansionModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

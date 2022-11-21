@@ -47,6 +47,10 @@ export class UserService {
     this.store.dispatch(logout())
   }
 
+  getUsers(): Observable<User[]>{
+    return this.httpClient.get<User[]>('/users/all');
+  }
+
   getUsername(): Observable<string> {
     return this.username$;
   }
