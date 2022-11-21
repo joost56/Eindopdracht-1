@@ -21,7 +21,9 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <select *ngFor="let user of (users$ | async)">
-                <option value="{{user.username}}">{{user.username}} <button (click)="addUserToTask()"></option>
+                <option value="{{user.username}}">
+                  {{user.username}} <button (click)="addUserToTask(user.username, task.id)"></button>
+                </option>
               </select>
               <div *ngFor="let taskUser of task.users">
                 <p>{{taskUser.username}}</p>

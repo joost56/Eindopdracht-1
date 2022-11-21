@@ -44,7 +44,7 @@ export class ColumnComponent implements OnInit {
   ngOnChanges() : void {
   }
 
-  addUserToTask(username: string, taskId: string) {
+  addUserToTask(username: string, taskId: number) {
     this.columnService.addUserToTask(username, taskId);
   }
 
