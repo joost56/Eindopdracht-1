@@ -36,9 +36,11 @@ export class ColumnComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.updateUsers();
+    this.users$ = this.userService.getUsers()
+    this.users$.subscribe(console.log);
     this.tasks$ = of(this._column.tasks);
     this.tasks$.subscribe(console.log);
-    this.users$ = this.userService.getUsers()
   }
 
   ngOnChanges() : void {

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, of, Subject} from "rxjs";
 import {Task} from "../models/Task";
 import {Column} from "../models/Column";
 import {SwitchColumn} from "../models/SwitchColumn";
