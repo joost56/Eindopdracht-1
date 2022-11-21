@@ -1,27 +1,40 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {login, logout} from '../actions/user.actions';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/User";
 import {Router} from "@angular/router";
+import {Column} from "../models/Column";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  username$: Observable<string>;
-  router: Router;
+  private users: Subject<User[]>;
+  private userArray: User[] = [];
+  private username$: Observable<string>;
+  private router: Router;
 
   constructor(private store: Store<{ username: string }>, private httpClient: HttpClient, router: Router) {
+    this.users = new BehaviorSubject<User[]>([]);
     this.username$ = store.select('username')
     this.router = router;
+  }
+
+  updateUsers(){
+    this.httpClient.get<User[]>('/users/all').subscribe((userList) => {
+      this.userArray = userList;
+      this.users.next([...this.userArray])
+    })
   }
 
   register(user: User) {
     console.log("trying to register user with username: " + user.username + " and password : " + user.password);
     this.httpClient.post<boolean>('/users/register', {username: user.username, password: user.password})
-      .subscribe(console.log)
+      .subscribe(() => {
+        this.updateUsers();
+      })
   }
 
   login(user: User) {
@@ -47,8 +60,8 @@ export class UserService {
     this.store.dispatch(logout())
   }
 
-  getUsers(): Observable<User[]>{
-    return this.httpClient.get<User[]>('/users/all');
+  getUsers(): Observable<User[]> {
+    return this.users;
   }
 
   getUsername(): Observable<string> {

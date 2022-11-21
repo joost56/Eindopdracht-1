@@ -20,6 +20,7 @@
                   click to see users
                 </mat-panel-description>
               </mat-expansion-panel-header>
+              <p>Kies user</p>
               <select *ngFor="let user of (users$ | async)">
                 <option value="{{user.username}}">
                   {{user.username}} <button (click)="addUserToTask(user.username, task.id)"></button>

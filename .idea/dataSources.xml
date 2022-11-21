@@ -8,18 +8,18 @@
       <jdbc-url>jdbc:postgresql://localhost:5433/testdb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@task-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com" uuid="be88edf1-2a66-43c4-b939-c30a386974f7">
+    <data-source source="LOCAL" name="postgres@task-database.cz2vhivjs95f.us-east-1.rds.amazonaws.com" uuid="193a9ec3-0e15-476a-9fb1-d2f18cf04a70">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://task-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://task-database.cz2vhivjs95f.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@account-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com" uuid="9faf1295-86da-4de6-b2ae-48997fa66ff3">
+    <data-source source="LOCAL" name="postgres@account-database.cz2vhivjs95f.us-east-1.rds.amazonaws.com" uuid="97370d70-303a-4f88-b936-cfa28f963e8e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://account-database.cwad5ynrku7z.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://account-database.cz2vhivjs95f.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
