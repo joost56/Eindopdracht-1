@@ -28,12 +28,11 @@ public class TaskService {
 
     public List<Task> getAllTasks(){
         return this.taskRepository.findAll();
-
     }
 
     public Task editTask(Long taskId, String newDescription) throws TaskNotFoundException {
         Task task = this.taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
         task.editTask(newDescription);
-        return task;
+        return save(task);
     }
 }

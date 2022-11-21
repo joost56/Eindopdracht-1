@@ -39,8 +39,7 @@ public class TaskController {
 
     @PatchMapping("/edit")
     public Task editTask(@RequestBody EditTaskDto editTaskDto) throws TaskNotFoundException {
-        Task task = taskService.editTask(editTaskDto.getTaskId(), editTaskDto.getTaskDescription());
-        return taskService.save(task);
+        return taskService.editTask(editTaskDto.getTaskId(), editTaskDto.getTaskDescription());
     }
 
     @PutMapping("/assign")

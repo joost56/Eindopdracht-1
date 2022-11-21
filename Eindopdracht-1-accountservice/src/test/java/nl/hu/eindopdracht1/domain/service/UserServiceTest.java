@@ -8,12 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.math.BigDecimal;
-import java.util.HashSet;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -24,6 +19,7 @@ class UserServiceTest {
     UserService userService;
     @Captor
     ArgumentCaptor<User> userArgumentCaptor;
+
     @Test
     public void testAccountCreationSuccessful() {
         //Given

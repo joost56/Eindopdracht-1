@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
@@ -26,7 +27,7 @@ class ColumnServiceTest {
     @Mock
     TaskRepository taskRepository;//MOCK
 
-    @InjectMocks
+    @Mock
     TaskService taskService;//MOCK
 
     @InjectMocks // Class Under Test
@@ -73,30 +74,34 @@ class ColumnServiceTest {
         assertThat(columnResult).isEqualTo(column);
     }
 
-//    @Test
-//    public void switchTaskBetweenColumnsSuccesful() throws ColumnNotFoundException, TaskNotFoundException {
-//        // Given
-//        Column column = new Column("kolom1");
-//        Mockito.when(columnRepository.save(column)).thenReturn(column);
-//        Column column2 = new Column("kolom2");
-//        Mockito.when(columnRepository.save(column2)).thenReturn(column2);
-//        Task task = new Task(1L, "dit is een task", column);
-//        Mockito.when(taskRepository.save(task)).thenReturn(task);
-//        Mockito.when(taskService.findTaskById(1L)).thenReturn(task);
-//        Mockito.when(columnService.switchTask("kolom1", "kolom2", 1L)).thenReturn(task);
-//
-//        // When
-//        columnService.save(column);
-//        columnService.save(column2);
-//        taskService.save(task);
-//        Task res = columnService.switchTask("kolom1", "kolom2", 1L);
-//
-//        // Then
-//        Mockito.verify(columnRepository, Mockito.times(1)).save(column);
-//        Mockito.verify(columnRepository, Mockito.times(1)).save(column2);
-//        Mockito.verify(taskRepository, Mockito.times(1)).save(task);
-//        assertThat(res.getColumn()).isEqualTo(column2);
-////        assertThat(columnArgumentCaptor.getValue()).isEqualTo(task);
-////        assertThat(columnArgumentCaptor.getValue().getTasks()).isNotNull();
-//    }
+    @Test
+    void findColumnWithNoExistingColumn() {
+        // When
+        Throwable thrown = catchThrowable(() -> {
+            final Column columnResult = columnService.findColumnById("kolom100");
+        });
+
+        // Then
+        assertThat(thrown)
+                .isInstanceOf(ColumnNotFoundException.class)
+                .hasMessageContaining("Column with id kolom100 does not exist.");
+    }
+
+    @Test
+    public void switchTaskBetweenColumnsSuccesful() throws ColumnNotFoundException, TaskNotFoundException {
+        // Given
+        Column column = new Column("kolom1");
+        Column column2 = new Column("kolom2");
+        Task task = new Task(1L, "dit is een task", column);
+        Mockito.when(taskService.findTaskById(1L)).thenReturn(task);
+        Mockito.when(columnRepository.findById("kolom2")).thenReturn(java.util.Optional.of(column2));
+        Mockito.when(columnRepository.findById("kolom1")).thenReturn(java.util.Optional.of(column));
+        Mockito.when(taskRepository.save(task)).thenReturn(task);
+
+        // When
+        Task res = columnService.switchTask("kolom1", "kolom2", 1L);
+
+        // Then
+        assertThat(res.getColumn()).isEqualTo(column2);
+    }
 }
