@@ -8,6 +8,7 @@ import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -35,5 +36,9 @@ public class UserService {
             return true;
         }
         throw new PasswordIncorrectException(password);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

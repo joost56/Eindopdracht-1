@@ -11,9 +11,12 @@ import nl.hu.eindopdracht1.domain.exception.TaskAlreadyAssignedToUser;
 import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
 import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpHeaders;
+import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -33,6 +36,8 @@ public class UserService {
     private final TaskService taskService;
     private final TaskRepository taskRepository;
 
+    private final RestTemplate restTemplate = new RestTemplate();
+
     @Autowired
     private ConfigUri configUri;
 
@@ -44,26 +49,20 @@ public class UserService {
         return userRepository.findById(username).orElseThrow(() -> new UserNotFoundException(username));
     }
 
-    public HttpResponse<String> getUserById(String uri, String userId) throws IOException, InterruptedException {
-        String body = new Gson().toJson(Map.of("userId", userId));
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
-                .uri(URI.create(uri))
-                .build();
-        return client.send(request, HttpResponse.BodyHandlers.ofString());
+    public ResponseEntity<String> getUserById(String uri, String userId) {
+        String url = uri + userId;
+        return this.restTemplate.getForEntity(url, String.class);
     }
 
     public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
-        boolean userExists = Boolean.parseBoolean(getUserById(configUri.getUri(), username).body());
+        boolean userExists = Boolean.parseBoolean(getUserById(configUri.getUri(), username).getBody());
+        System.out.println(userExists);
         if (userExists) {
             if (!userRepository.findById(username).isPresent()) {
                 save(new User(username));
             }
             User user = findUserById(username);
             Task task = taskService.findTaskById(taskId);
-            System.out.println(user.getTasks());
             if (user.getTasks().contains(task)) {
                 throw new TaskAlreadyAssignedToUser(taskId, username);
             }

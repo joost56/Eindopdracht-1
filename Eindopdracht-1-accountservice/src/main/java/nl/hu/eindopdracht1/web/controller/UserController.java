@@ -11,6 +11,8 @@ import nl.hu.eindopdracht1.web.dto.UserIdDto;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -37,5 +39,10 @@ public class UserController {
         }catch (UserNotFoundException e) {
             return false;
         }
+    }
+
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 }
