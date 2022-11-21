@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, of, Subject} from "rxjs";
 import {Task} from "../models/Task";
 import {Column} from "../models/Column";
 import {SwitchColumn} from "../models/SwitchColumn";
 import {HttpClient} from "@angular/common/http";
+import {User} from "../models/User";
 
 @Injectable({
   providedIn: 'root'
@@ -41,9 +42,18 @@ export class ColumnService {
   addTask(columnId: string, taskDescription: string) {
     this.httpClient.post<Task>('/boards/tasks', {columnId: columnId, taskDescription: taskDescription})
       .subscribe(() => {
-        this.updateColumns()
+        this.updateColumns();
       });
   };
+
+  addUserToTask(username: string, taskId: number) {
+    this.httpClient.post<User[]>('/users/assign', {
+      username: username,
+      taskId: taskId
+    }).subscribe(() => {
+      this.updateColumns();
+    });
+  }
 
   moveTaskBetweenColumns(previousColumnId: string, nextColumnId: string, previousIndex: number) {
     const task = this.columnsArray.filter((column) => column.id == previousColumnId)[0].tasks[previousIndex]
