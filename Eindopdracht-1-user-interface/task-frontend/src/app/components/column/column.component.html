@@ -1,13 +1,36 @@
 <table>
-  <tr><th>{{id}}</th></tr>
   <tr>
-    <div [id]= id
+    <th>{{id}}</th>
+  </tr>
+  <tr>
+    <div [id]=id
          cdkDropList
          (cdkDropListDropped)="drop($event)"
          [cdkDropListData]="(tasksContent$ | async) ?? []">
       <div
         *ngFor="let task of (tasks$ | async)">
-        <div cdkDrag>{{task.description}}</div>
+        <div cdkDrag>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{task.description}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  click to see users
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <select *ngFor="let user of (users$ | async)">
+                <option value="{{user.username}}">{{user.username}} <button (click)="addUserToTask()"></option>
+              </select>
+              <div *ngFor="let taskUser of task.users">
+                <p>{{taskUser.username}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </div>
+
       </div>
     </div>
   </tr>
