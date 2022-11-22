@@ -7,12 +7,12 @@ import nl.hu.eindopdracht1.domain.exception.PasswordIncorrectException;
 import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
 import nl.hu.eindopdracht1.domain.service.UserService;
 import nl.hu.eindopdracht1.web.dto.UserDto;
-import nl.hu.eindopdracht1.web.dto.UserIdDto;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
