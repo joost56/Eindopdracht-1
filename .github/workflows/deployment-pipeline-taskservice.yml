@@ -67,7 +67,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
           HOSTNAME : ${{ secrets.HOST_NAME_FIRST  }}
           USER_NAME : ${{ secrets.USER_NAME  }}
-          ECR_REGISTRY: 566768521972.dkr.ecr.us-east-1.amazonaws.com
+          ECR_REGISTRY: 484013915275.dkr.ecr.us-east-1.amazonaws.com
           ECR_REPOSITORY: task-ecr-repository
           IMAGE_TAG: v${{ github.run_number }}
         run: |
