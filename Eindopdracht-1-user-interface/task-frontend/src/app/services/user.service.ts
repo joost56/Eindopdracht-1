@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../models/User";
 import {Router} from "@angular/router";
 import {Column} from "../models/Column";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class UserService {
 
   register(user: User) {
     console.log("trying to register user with username: " + user.username + " and password : " + user.password);
-    this.httpClient.post<boolean>('/users/register', {username: user.username, password: user.password})
+    this.httpClient.post<boolean>(environment.baseUrl+ '/users/register', {username: user.username, password: user.password})
       .subscribe(() => {
         this.updateUsers();
       })
