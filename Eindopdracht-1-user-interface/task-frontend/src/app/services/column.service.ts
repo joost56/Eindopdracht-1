@@ -47,7 +47,7 @@ export class ColumnService {
   };
 
   addUserToTask(username: string, taskId: number) {
-    this.httpClient.put<User[]>('/users/assign', {
+    this.httpClient.put<User[]>('/boards/tasks/assign', {
       username: username,
       taskId: taskId
     }).subscribe(() => {
