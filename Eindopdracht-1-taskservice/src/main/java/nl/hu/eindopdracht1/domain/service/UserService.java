@@ -1,45 +1,24 @@
 package nl.hu.eindopdracht1.domain.service;
 
-import com.nimbusds.jose.shaded.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import nl.hu.eindopdracht1.data.entity.Task;
 import nl.hu.eindopdracht1.data.entity.User;
-import nl.hu.eindopdracht1.data.repository.TaskRepository;
 import nl.hu.eindopdracht1.data.repository.UserRepository;
-import nl.hu.eindopdracht1.domain.config.ConfigUri;
 import nl.hu.eindopdracht1.domain.exception.TaskAlreadyAssignedToUser;
 import nl.hu.eindopdracht1.domain.exception.TaskNotFoundException;
 import nl.hu.eindopdracht1.domain.exception.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.http.HttpHeaders;
-import org.springframework.web.client.RestTemplate;
-
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class UserService {
     private final UserRepository userRepository;
-    private HttpClient client = HttpClient.newHttpClient();
     private final TaskService taskService;
-    private final TaskRepository taskRepository;
-
-    private final RestTemplate restTemplate = new RestTemplate();
-
-    @Autowired
-    private ConfigUri configUri;
+    private final HttpRequestService requestService;
 
     public User save(User user){
         return userRepository.save(user);
@@ -49,15 +28,8 @@ public class UserService {
         return userRepository.findById(username).orElseThrow(() -> new UserNotFoundException(username));
     }
 
-    public ResponseEntity<String> getUserById(String uri, String userId) {
-        String url = uri + userId;
-        return this.restTemplate.getForEntity(url, String.class);
-    }
-
     public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
-        boolean userExists = Boolean.parseBoolean(getUserById(configUri.getUri(), username).getBody());
-        System.out.println(userExists);
-        if (userExists) {
+        if (requestService.userExists(username)) {
             if (!userRepository.findById(username).isPresent()) {
                 save(new User(username));
             }

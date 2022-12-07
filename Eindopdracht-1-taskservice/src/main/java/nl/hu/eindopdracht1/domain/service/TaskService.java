@@ -1,7 +1,6 @@
 package nl.hu.eindopdracht1.domain.service;
 
 import lombok.RequiredArgsConstructor;
-import nl.hu.eindopdracht1.data.entity.Column;
 import nl.hu.eindopdracht1.data.entity.Task;
 import nl.hu.eindopdracht1.data.repository.ColumnRepository;
 import nl.hu.eindopdracht1.data.repository.TaskRepository;
@@ -16,7 +15,6 @@ import java.util.List;
 @Transactional
 public class TaskService {
     private final TaskRepository taskRepository;
-    private final ColumnRepository columnRepository;
 
     public Task save(Task task){
         return taskRepository.save(task);
