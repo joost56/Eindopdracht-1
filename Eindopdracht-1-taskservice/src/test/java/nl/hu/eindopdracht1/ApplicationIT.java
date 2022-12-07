@@ -73,13 +73,13 @@ public class ApplicationIT {
         //Given
         final var columnRequest = new CreateColumnDto("kolom1");
         final var columnRequest2 = new CreateColumnDto("kolom2");
-        final var columnUri = "http://localhost:" + 8081 + "/boards/columns";
+        final var columnUri = "http://localhost:" + port + "/boards/columns";
         final var taskRequest = new CreateTaskDto("kolom1", "Dit is een task");
-        final var taskUri = "http://localhost:" + 8081 + "/boards/tasks";
+        final var taskUri = "http://localhost:" + port + "/boards/tasks";
         final var switchRequest = new SwitchTaskDto("kolom1", "kolom2", 1L);
-        final var switchUri = "http://localhost:" + 8081 + "/boards/columns/switch";
-        final var getColumnUri1 = "http://localhost:" + 8081 + "/boards/columns/kolom1";
-        final var getColumnUri2 = "http://localhost:" + 8081 + "/boards/columns/kolom2";
+        final var switchUri = "http://localhost:" + port + "/boards/columns/switch";
+        final var getColumnUri1 = "http://localhost:" + port + "/boards/columns/kolom1";
+        final var getColumnUri2 = "http://localhost:" + port + "/boards/columns/kolom2";
 
         //When
         HttpEntity<CreateColumnDto> requestPostColumn = new HttpEntity<>(columnRequest);
