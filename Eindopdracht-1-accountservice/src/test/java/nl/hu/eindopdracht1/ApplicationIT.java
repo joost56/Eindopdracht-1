@@ -1,6 +1,5 @@
 package nl.hu.eindopdracht1;
 
-import nl.hu.eindopdracht1.data.entity.User;
 import nl.hu.eindopdracht1.web.dto.UserDto;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -17,10 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Random;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 

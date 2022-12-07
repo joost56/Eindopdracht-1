@@ -10,14 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.math.BigDecimal;
-import java.util.HashSet;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
 class ColumnServiceTest {
@@ -35,12 +29,6 @@ class ColumnServiceTest {
 
     @Captor
     ArgumentCaptor<Column> columnArgumentCaptor;
-
-    @Captor
-    ArgumentCaptor<Task> taskArgumentCaptor;
-
-    @Captor
-    ArgumentCaptor<Long> longArgumentCaptor;
 
     @Test
     public void saveColumnSuccessful(){

@@ -3,12 +3,10 @@ package nl.hu.eindopdracht1.data.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jdk.jfr.Name;
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-//idk
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
