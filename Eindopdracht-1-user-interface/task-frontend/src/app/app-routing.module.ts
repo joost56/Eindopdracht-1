@@ -7,11 +7,11 @@ import {RegisterComponent} from "./components/register/register.component";
 
 const routes: Routes = [
   {
-    path: '/users/login',
+    path: 'login',
     component: LoginComponent
   },
   {
-    path: '/users/register',
+    path: 'register',
     component:RegisterComponent
   },
   {
