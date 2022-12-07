@@ -22,7 +22,8 @@
               </mat-expansion-panel-header>
               <p>Kies user</p>
               <div *ngFor="let user of (users$ | async)">
-                <button (click)="addUserToTask(user.username, task.id)"></button>
+                <div *ngIf="!(task.users.includes(user))">
+                <button (click)="addUserToTask(user.username, task.id)">{{user.username}}</button>
               </div>
               <p>Users: </p>
               <div *ngFor="let taskUser of task.users">
