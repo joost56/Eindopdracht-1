@@ -24,6 +24,7 @@
               <div *ngFor="let user of (users$ | async)">
                 <div *ngIf="!(task.users.includes(user))">
                 <button (click)="addUserToTask(user.username, task.id)">{{user.username}}</button>
+                </div>
               </div>
               <p>Users: </p>
               <div *ngFor="let taskUser of task.users">
