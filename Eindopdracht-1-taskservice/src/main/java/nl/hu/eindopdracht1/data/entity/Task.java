@@ -1,6 +1,7 @@
 package nl.hu.eindopdracht1.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jdk.jfr.Name;
 import lombok.*;
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Task {
     @JoinColumn(name="column_id", nullable = false)
     private Column column;
 
+    @JsonIgnoreProperties(value = "tasks")
     @ManyToMany
     @JoinColumn(name = "user_id", nullable = true)
     private List<User> users = new ArrayList<>();
