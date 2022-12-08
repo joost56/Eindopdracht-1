@@ -50,4 +50,8 @@ export class ColumnComponent implements OnInit {
     this.columnService.addUserToTask(username, taskId);
   }
 
+  editTaskName(taskId: number, name: string){
+    this.columnService.editTask(taskId, name);
+  }
+
 }
