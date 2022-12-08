@@ -49,7 +49,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: task-ecr-repository
-          IMAGE_TAG: v${{ github.run_number }}
+          IMAGE_TAG: task-v${{ github.run_number }}
         working-directory: Eindopdracht-1-taskservice
         run: |
           docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} .
@@ -58,8 +58,8 @@ jobs:
 
       - name: Tag the build version
         run: |
-          git tag "v${GITHUB_RUN_NUMBER}"
-          git push origin "v${GITHUB_RUN_NUMBER}"
+          git tag "task-v${GITHUB_RUN_NUMBER}"
+          git push origin "task-v${GITHUB_RUN_NUMBER}"
 
       - name: Deploy container on EC2
         working-directory: Eindopdracht-1-taskservice
@@ -69,7 +69,7 @@ jobs:
           USER_NAME : ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: 484013915275.dkr.ecr.us-east-1.amazonaws.com
           ECR_REPOSITORY: task-ecr-repository
-          IMAGE_TAG: v${{ github.run_number }}
+          IMAGE_TAG: task-v${{ github.run_number }}
         run: |
           echo "${PRIVATE_KEY}" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
@@ -85,7 +85,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: v${{ github.run_number }}
+          tag_name: task-v${{ github.run_number }}
+          release_name: task-v${{ github.run_number }}
           draft: false
           prerelease: false
