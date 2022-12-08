@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Configuration
 @ConfigurationProperties(prefix = "accountservice")
 public class ConfigUri {
-    private String uri = "http://load-balancer-eindopdracht-1-199010695.us-east-1.elb.amazonaws.com/users/";
+    private String uri;
 
     public String getUri() {
         return uri;
