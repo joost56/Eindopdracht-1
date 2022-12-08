@@ -30,7 +30,7 @@ public class UserService {
 
     public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
         if (requestService.userExists(username)) {
-            if (!userRepository.findById(username).isPresent()) {
+            if (userRepository.findById(username).isEmpty()) {
                 save(new User(username));
             }
             User user = findUserById(username);
