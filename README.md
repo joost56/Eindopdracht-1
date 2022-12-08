@@ -8,10 +8,10 @@ In dit project maken we gebruik van 2 backend services, namelijk taskservice en 
 ## Getting Started
 
 Start de aws omgeving op in aws labs voor de reparatie maken we nu gebruik van de omgeving van Tygo Steenbergen, aangezien de andere omgeving over budget was.
-Update de secrets via de gh cli.
 Check dat de images draaien in de ec2 instances, zo niet zet deze aan met "docker start [OPTIONS] CONTAINER [CONTAINER...]".
 Zet de databases aan voor de ec2 instances dit zijn task-database en account-database.
-De frontend is beschikbaar op https://d10ua51msudwmt.cloudfront.net.
+De frontend is beschikbaar op https://d1val08eg2t11.cloudfront.net/
+Het kan zijn dat deze link aangepast moet worden naar http ipv https.
 
 ## Documentatie
 ### Use-case Diagram: ###
