@@ -3,11 +3,11 @@
     <th>{{id}}</th>
   </tr>
   <tr>
-    <div [id]=id
+    <div id="tasklist" [id]=id
          cdkDropList
          (cdkDropListDropped)="drop($event)"
          [cdkDropListData]="(tasksContent$ | async) ?? []">
-      <div id="tasklist"
+      <div
         *ngFor="let task of (tasks$ | async)">
         <div cdkDrag>
           <mat-accordion>
