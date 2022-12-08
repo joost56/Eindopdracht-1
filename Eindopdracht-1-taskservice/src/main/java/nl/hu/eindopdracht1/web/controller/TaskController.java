@@ -37,7 +37,7 @@ public class TaskController {
         return taskService.save(new Task(createTaskDto.getTaskDescription(), column));
     }
 
-    @PatchMapping()
+    @PutMapping()
     public Task editTask(@RequestBody EditTaskDto editTaskDto) throws TaskNotFoundException {
         return taskService.editTask(editTaskDto.getTaskId(), editTaskDto.getTaskDescription());
     }
