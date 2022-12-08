@@ -10,6 +10,10 @@
       <div
         *ngFor="let task of (tasks$ | async)">
         <div cdkDrag>
+          <form (ngSubmit)="editTaskName(task.id, taskName.value)">
+            <div><label for="taskName">New name of task:</label for="taskName"><input type="text" #taskName></div>
+            <div><button type="submit">Edit name of task</button></div>
+          </form>
           <mat-accordion>
             <mat-expansion-panel hideToggle>
               <mat-expansion-panel-header>

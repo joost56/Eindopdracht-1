@@ -46,6 +46,13 @@ export class ColumnService {
       });
   };
 
+  editTask(taskId: number, taskDescription: string){
+    this.httpClient.put<Task>('/boards/tasks', {taskId: taskId, taskDescription: taskDescription})
+      .subscribe(() => {
+        this.updateColumns();
+      });
+  }
+
   addUserToTask(username: string, taskId: number) {
     this.httpClient.put<User[]>('/boards/tasks/assign', {
       username: username,
