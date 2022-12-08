@@ -31,13 +31,4 @@ public class User {
     public User(String username) {
         this.username = username;
     }
-
-    @Override
-    public String toString() {
-        List<Long> taskIds = tasks.stream().map(Task::getId).toList();
-        return "User{" +
-                "username='" + username + '\'' +
-                ", tasks=" + taskIds +
-                '}';
-    }
 }
