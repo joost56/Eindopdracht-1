@@ -3,7 +3,7 @@
     <th>{{id}}</th>
   </tr>
   <tr>
-    <div id="tasklist" [id]=id
+    <div class="tasklist" [id]=id
          cdkDropList
          (cdkDropListDropped)="drop($event)"
          [cdkDropListData]="(tasksContent$ | async) ?? []">
