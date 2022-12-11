@@ -15,15 +15,13 @@ Controleer even voor de zekerheid dat je op http zit ipv https.
 
 ## Documentatie
 ### Use-case Diagram: ###
-![UseCaseDiagram](https://user-images.githubusercontent.com/60653502/195855273-bdb3954f-0e74-4e8a-bae7-5a1b69c85cb4.png)
+![UseCaseDiagram](https://user-images.githubusercontent.com/60653502/206901823-7114d450-2962-44f4-984b-10c5dd6c8d6c.png)
 ### Component Diagram: ###
-![ComponentDiagram](https://user-images.githubusercontent.com/60653502/195855305-c83c5d6f-3643-41f4-ae6a-3e58685868bf.png)
+![ComponentDiagram](https://user-images.githubusercontent.com/60653502/206901874-7a6ae740-9770-42bd-aaf3-dd9f12f1f0c2.png)
 ### Domein model: ###
-![DomainModel](https://user-images.githubusercontent.com/60653502/195855327-5b397503-ba60-4beb-876c-3ab8159f2377.png)
+![DomainModel]!(https://user-images.githubusercontent.com/60653502/206901905-7036a501-1d4c-400f-b5d8-c374ecd823ce.png)
 ### Cloud Diagram: ###
 ![CloudDiagram](https://user-images.githubusercontent.com/60653502/195855388-2ac094fd-a14c-43e3-9ff7-121a71acb907.png)
-### Activity Diagram voor "filter tasks" use case: ###
-![ActivityDiagramFilterTasks](https://user-images.githubusercontent.com/60653502/195855422-4aa462ee-1ab6-4654-b98d-57e4e16f5235.jpeg)
 ### Activity Diagram voor "login" use case: ###
 ![ActivityDiagramLogin](https://user-images.githubusercontent.com/60653502/195855425-eb2cfdbb-caa5-4385-88ef-67607af60816.jpeg)
 ### Activity Diagram voor "move tasks between columns" use case: ###
@@ -38,7 +36,5 @@ Controleer even voor de zekerheid dat je op http zit ipv https.
 ![SystemSequenceDiagramAddTask](https://user-images.githubusercontent.com/60653502/195855431-1e7dc494-a26d-41bc-ad20-2fea1ec50b45.png)
 ### Sequence Diagram voor "add user to board" use case: ###
 ![SystemSequenceDiagramAddUserToBoard](https://user-images.githubusercontent.com/60653502/195855435-78a289cd-a729-4483-b96e-99dc0e09d71d.png)
-### Sequence Diagram voor "filter tasks" use case: ###
-![SystemSequenceDiagramFilterTasks](https://user-images.githubusercontent.com/60653502/195855439-439735f5-e4fa-4605-80de-7a9e8d8d2bda.jpeg)
 ### Sequence Diagram voor "move tasks between columns" use case: ###
 ![SystemSequenceDiagramMoveTasksBetweenColumns](https://user-images.githubusercontent.com/60653502/195855441-11f29d60-e270-417d-ba85-6d6baf11c34b.png)
