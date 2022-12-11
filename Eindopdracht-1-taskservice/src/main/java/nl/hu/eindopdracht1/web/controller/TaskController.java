@@ -15,6 +15,7 @@ import nl.hu.eindopdracht1.domain.service.UserService;
 import nl.hu.eindopdracht1.web.dto.AssignUserToTaskDto;
 import nl.hu.eindopdracht1.web.dto.CreateTaskDto;
 import nl.hu.eindopdracht1.web.dto.EditTaskDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +46,12 @@ public class TaskController {
     @PutMapping("/assign")
     public List<User> assignUser(@RequestBody AssignUserToTaskDto assignUserToTaskDto) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
         return userService.assignTaskToUserAndUserToTask(assignUserToTaskDto.getUsername(), assignUserToTaskDto.getTaskId());
+    }
+
+    //Only for test purposes
+    @GetMapping("/user/{id}")
+    public String getUser(@PathVariable String id) {
+        return userService.findUserByIdAccountService(id);
     }
 
     @GetMapping
