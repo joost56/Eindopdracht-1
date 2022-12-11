@@ -56,8 +56,8 @@ class MockServerIT {
 
     @Test
     void whenDummyAPIisCalledSalaryIsReturned() {
-        mockServer = startClientAndServer(port);
-        final MockServerClient mockServerClient = new MockServerClient("localhost", port);
+        mockServer = startClientAndServer(9080);
+        final MockServerClient mockServerClient = new MockServerClient("localhost", 9080);
 
         // Given a mock response from the API
         mockServerClient
@@ -77,10 +77,7 @@ class MockServerIT {
                 );
 
         // When we query our dummy api
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<AssignUserToTaskDto> requestUpdate = new HttpEntity<>(new AssignUserToTaskDto("joost", 1L), httpHeaders);
-        ResponseEntity<Void> response = restTemplate.exchange("http://localhost:" + port + "/boards/tasks/assign", HttpMethod.PUT, requestUpdate, Void.class);
+        ResponseEntity<Boolean> response = restTemplate.getForEntity("http://localhost:" + port + "/boards/tasks/user/joost", Boolean.class);
 
         // Then the correct salary is returned
         assertThat(response.getStatusCode().value()).isEqualTo(200);

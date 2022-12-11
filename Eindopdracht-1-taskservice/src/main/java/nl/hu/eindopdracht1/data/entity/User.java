@@ -1,5 +1,6 @@
 package nl.hu.eindopdracht1.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +22,18 @@ public class User {
     @Name("user_id")
     private String username;
 
+    @JsonIgnoreProperties(value = "users")
     @ManyToMany(mappedBy = "users")
     @Column
     private List<Task> tasks = new ArrayList<>();
 
     public User(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        List<Long> taskIds = tasks.stream().map(Task::getId).toList();
+        return "true";
     }
 }

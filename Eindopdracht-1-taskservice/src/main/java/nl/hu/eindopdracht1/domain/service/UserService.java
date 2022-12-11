@@ -28,7 +28,12 @@ public class UserService {
         return userRepository.findById(username).orElseThrow(() -> new UserNotFoundException(username));
     }
 
-    public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, IOException, InterruptedException, TaskAlreadyAssignedToUser {
+    //only for test purposes
+    public String findUserByIdAccountService(String username) {
+        return requestService.getUserById("http://localhost:9080/users/", username).getBody();
+    }
+
+    public List<User> assignTaskToUserAndUserToTask(String username, Long taskId) throws UserNotFoundException, TaskNotFoundException, TaskAlreadyAssignedToUser {
         if (requestService.userExists(username)) {
             if (!userRepository.findById(username).isPresent()) {
                 save(new User(username));
