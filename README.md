@@ -19,7 +19,7 @@ Controleer even voor de zekerheid dat je op http zit ipv https.
 ### Component Diagram: ###
 ![ComponentDiagram](https://user-images.githubusercontent.com/60653502/206901874-7a6ae740-9770-42bd-aaf3-dd9f12f1f0c2.png)
 ### Domein model: ###
-![DomainModel]!(https://user-images.githubusercontent.com/60653502/206901905-7036a501-1d4c-400f-b5d8-c374ecd823ce.png)
+![DomainModel](https://user-images.githubusercontent.com/60653502/206901905-7036a501-1d4c-400f-b5d8-c374ecd823ce.png)
 ### Cloud Diagram: ###
 ![CloudDiagram](https://user-images.githubusercontent.com/60653502/195855388-2ac094fd-a14c-43e3-9ff7-121a71acb907.png)
 ### Activity Diagram voor "login" use case: ###
